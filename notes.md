@@ -1,19 +1,29 @@
 Database Relationships:
-<!-- Users -->
+<!-- User -->
 - has a username, email, and a password
 - has many lecture requests
 - has many comments
+- has many   hearts
+- has many   lectures_liked, through => hearts, source => lecture_request
 
-<!-- LectureRequests -->
+
+<!-- LectureRequest -->
 - has a title, and content
 - belongs to user, and can only be modified by owner
-- has many comments ?? 
+- has many comments
+- has many hearts
+- has many user_likes, through => hearts, source => user
+
 <!-- hearts for likes, on click will get the current user's id? -->
 
-<!-- Comments -->
-- has content
+<!-- Comment -->
+- has text
 - belongs to LectureRequest
 - belongs to User
+
+<!-- Heart -->
+- belongs to user
+- belongs to lecture_request
 
 Created rails app and used postgresql as database in case I want to use heroku:
 rails new "lecture-requester" --database=postgresql
@@ -26,4 +36,4 @@ Steps:
 - ran bundle install
 - ran devise install, and generated the devise Model (User model in this case)
 - Started postgres server app in order to create postgres db
-- created migrations for users and lectures
+- created migrations for users, hearts, comments and lectureRequests
