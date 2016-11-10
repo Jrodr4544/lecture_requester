@@ -3,4 +3,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  has_many :lecture_requests
+  has_many :comments
+
+  # hearts associations
+  has_many   :hearts
+  has_many   :lectures_liked, :through => :hearts, :source => :lecture_request
 end
+
