@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @user
-    render json: @user
+    render json: @user, include: ['lecture_requests.comments', 'lecture_requests.user_likes']
   end
 
   private
