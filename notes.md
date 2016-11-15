@@ -37,3 +37,12 @@ Steps:
 - ran devise install, and generated the devise Model (User model in this case)
 - Started postgres server app in order to create postgres db
 - created migrations for users, hearts, comments and lectureRequests
+- Added serializer for lectureRequests and comments
+- created lecture request controller
+  added index action
+  added authenticate_user only on create, edit, destroy
+- added routes to route file for lecture requests
+
+
+
+
