@@ -10,15 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161110170306) do
+ActiveRecord::Schema.define(version: 20161115154928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.text     "text"
+    t.integer  "user_id"
+    t.integer  "lecture_request_id"
   end
 
   create_table "hearts", force: :cascade do |t|
@@ -35,6 +37,7 @@ ActiveRecord::Schema.define(version: 20161110170306) do
     t.datetime "updated_at", null: false
     t.text     "content"
     t.string   "title"
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|
