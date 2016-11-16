@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+  gem "bower-rails", "~> 0.11.0"
+
+gem 'angular-rails-templates'
+
 # responders responds to json calls
 gem 'responders'
 
