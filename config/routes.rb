@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users, only: [:show, :edit]
 
+  root to: "application#home"
+
   resources :lecture_requests, only: [:create, :show, :update, :index, :destroy]
 
   post 'lecture_requests/:id/heart', to: 'lecture_request#heart_lecture_request'
