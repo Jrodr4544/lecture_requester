@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 
-  gem "bower-rails", "~> 0.11.0"
+gem 'less-rails-semantic_ui'
+gem 'autoprefixer-rails'
+gem 'therubyracer'
+
+gem "bower-rails", "~> 0.11.0"
 
 gem 'angular-rails-templates'
 
