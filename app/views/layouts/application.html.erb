@@ -8,7 +8,8 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
+  <body ng-app="lecture_requester" ng-controller="LectureRequestsController">
+      {{request}}
     <%= yield %>
   </body>
 </html>
