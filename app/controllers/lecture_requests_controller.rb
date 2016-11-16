@@ -4,8 +4,11 @@ class LectureRequestsController < ApplicationController
 
   def index
     @lectureRequests = LectureRequest.all
-
-    render json: @lectureRequests
+    # binding.pry
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @lectureRequests, root: true}
+    end
   end
 
   def show
@@ -17,7 +20,7 @@ class LectureRequestsController < ApplicationController
     if @lectureRequest.save
       flash.now[:notice] = 'Thank you! Your Lecture Request was posted.'
       # rendering the object, unless redirecting to show page then we wont need this line below
-      render json: @lectureRequest, status: 201, root: true
+      render json: @lectureRequest, status: 201
     else
       render json: @lectureRequest, status: 404
       # try - render json: {errors: @lectureRequest.errors.full_messages}, status: unprocessable_entity
