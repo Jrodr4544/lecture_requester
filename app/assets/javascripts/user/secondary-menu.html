@@ -1,0 +1,40 @@
+<div class="ui grid">
+  <div class="four wide column">
+    <div class="ui vertical fluid tabular menu">
+      <a class="active item" data-tab="first">
+        Edit Profile
+      </a>
+      <a class="item" data-tab="second">
+        Create a Lecture Request
+      </a>
+      <a class="item" data-tab="third">
+        Your requests
+      </a>
+      <a class="item" data-tab="fourth">
+        Requests you like
+      </a>
+    </div>
+  </div>
+
+  <div class="twelve wide stretched column">
+    <div class="active ui attached tab segment" data-tab="first">
+    First
+    </div>
+    <div class="ui attached tab segment" data-tab="second">
+    Second
+    </div>
+    <div class="ui attached tab segment" data-tab="third">
+    Third
+    </div>
+    <div class="ui attached tab segment" data-tab="fourth">
+    Fourth
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $('.menu .item')
+    .tab()
+  ;
+</script>
+
