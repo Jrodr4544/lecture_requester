@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users, only: [:show, :edit]
 
-  root to: "application#home"
+  root "application#index"
 
   resources :lecture_requests, only: [:create, :show, :update, :index, :destroy]
 
