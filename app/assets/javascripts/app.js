@@ -7,6 +7,6 @@
   }
 
   angular
-    .module('lecture_requester', ['ui.router','templates','Devise'])  
+    .module('lecture_requester', ['ui.router','templates','Devise']) 
     .controller('LectureRequestsController', LectureRequestsController)
 }());
