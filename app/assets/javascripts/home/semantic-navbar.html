@@ -5,9 +5,12 @@
   </div>
 </div> -->
 
-<div class="ui inverted menu">
-  <a class="active item" ui-sref="home">Home</a>
-  <a class="item" href="#" ui-sref="home.user">Profile</a>
-  <a class="item" href="#" ui-sref="home.about">About</a>
-  <a class="item right aligned" href="#" ui-sref="home.login">Login</a>
+<div>
+  <ul class="ui inverted menu" ng-controller="SessionController as session">
+  <li class="active item" role="presentation"><a ui-sref="home">Home</a></li>
+  <li class="item" role="presentation"><a href="#" ui-sref="home.user" ng-show="isAuthenticated">Profile</a></li>
+  <li class="item" role="presentation"><a href="#" ui-sref="home.about">About</a></li>
+  <li class="item right aligned" role="presentation"><a href="#" ui-sref="home.login" ng-hide="isAuthenticated">Login</a></li>
+  <li class="item right aligned" role="presentation"><a href="#" ng-show="isAuthenticated" ng-click="session.logout()">Logout</a></li>
+  </ul>
 </div>
