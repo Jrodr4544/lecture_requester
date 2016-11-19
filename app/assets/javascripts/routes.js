@@ -5,6 +5,9 @@
   angular
     .module('lecture_requester')  
     .config(function($stateProvider, $urlRouterProvider) {
+        
+        // $httpProvider.defaults.withCredentials = true;
+
         $stateProvider
             .state('home', {
               url: '/',
@@ -18,10 +21,15 @@
               controller: 'UserProfileController as vm'
             })
             .state('home.about', {
-              url: 'about',
+              url: '/about',
               templateUrl: 'user/profile.html',
               // will i need an about page controller?
               controller: 'HomeController as vm'
+            })
+            .state('home.login', {
+              url: '/login',
+              templateUrl: 'authentication/login.html',
+              controller: 'AuthController as vm'
             })
 
         $urlRouterProvider.otherwise('/')
