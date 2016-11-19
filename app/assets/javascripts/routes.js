@@ -22,8 +22,7 @@
             })
             .state('home.about', {
               url: '/about',
-              templateUrl: 'user/profile.html',
-              // will i need an about page controller?
+              templateUrl: 'home/about.html',
               controller: 'HomeController as vm'
             })
             .state('home.login', {
