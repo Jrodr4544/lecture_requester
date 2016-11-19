@@ -2,7 +2,7 @@
 
   'use strict';
 
-  function AuthController(Auth,$scope) {
+  function AuthController(Auth,$scope,$location) {
     // might need an auth service
     this.credentials = {
       email: '',
@@ -18,20 +18,20 @@
     this.signIn = function() {
       debugger
       Auth.login(this.credentials, this.config).then(function(user) {
-        console.log(user);
-        alert('success');
+        // Successfully redirects. Since route has otherwise - it sends to '/' path
+        $location.path('/user');
       }, function(error) {
         alert("failed");
       });
     }  
 
-    $scope.$on('devise:login', function(event, currentUser) {
-      // after login, a refresh, a new tab
-    })
+    // $scope.$on('devise:login', function(event, currentUser) {
+    //   // after login, a refresh, a new tab
+    // })
 
-    $scope.$on('devise:new-session', function(event, currentUser) {
-      // user logged in by Auth.login
-    })
+    // $scope.$on('devise:new-session', function(event, currentUser) {
+    //   // user logged in by Auth.login
+    // })
   }
 
   angular
