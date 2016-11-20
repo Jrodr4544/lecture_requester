@@ -16,7 +16,7 @@
     };
 
     this.signIn = function() {
-      debugger
+      // debugger
       Auth.login(this.credentials, this.config).then(function(user) {
         // Successfully redirects. Since route has otherwise - it sends to '/' path
         $location.path('/user');
@@ -25,13 +25,6 @@
       });
     }  
 
-    // $scope.$on('devise:login', function(event, currentUser) {
-    //   // after login, a refresh, a new tab
-    // })
-
-    // $scope.$on('devise:new-session', function(event, currentUser) {
-    //   // user logged in by Auth.login
-    // })
   }
 
   angular
