@@ -3,15 +3,23 @@
   'use strict';
 
   function SessionController(Auth,$scope,$location) {
-    Auth.currentUser().then(function(user) {
+    // debugger
+    var vm = this;
+    vm.current_user = null;
+
+    this.user = Auth.currentUser().then(function(user) {
+      // gets current user
+      // debugger
+      vm.current_user = user;
       $scope.isAuthenticated = true;
+      // UserService.setUser(user);
     }, function(error) {
       // Log on console to check out what the error is.
       console.log(error);
       alert('fail');
     });
 
-    $scope.$on('devise:new-session', function(event, currentUser) {
+      $scope.$on('devise:new-session', function(event, currentUser) {
         $scope.isAuthenticated = true;
       });
 
@@ -31,6 +39,7 @@
           // An error occurred logging out.
         });
       }
+
   }
 
   angular
