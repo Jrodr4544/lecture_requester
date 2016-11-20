@@ -4,13 +4,17 @@ class UsersController < ApplicationController
 
   def show
     @user
-    render json: @user, include: ['lecture_requests.comments', 'lecture_requests.user_likes']
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @user, include: ['lecture_requests.comments', 'lecture_requests.user_likes']}
+    end
   end
 
   private
 
   def set_user
-    @user = User.find(params[:id])
+    binding.pry
+    @user = current_user
   end
 
 end
