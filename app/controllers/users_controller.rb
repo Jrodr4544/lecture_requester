@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def show
     @user
     respond_to do |format|
-      format.html { render :index }
+      format.html { render :show }
       format.json { render json: @user, include: ['lecture_requests.comments', 'lecture_requests.user_likes']}
     end
   end
