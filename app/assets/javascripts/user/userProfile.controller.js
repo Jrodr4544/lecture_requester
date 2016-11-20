@@ -3,7 +3,20 @@
   'use strict';
   
   function UserProfileController($scope){
+    // debugger
+
+    // $scope.current_user = {
+    //   username: Auth._currentUser.username,
+    //   email:    Auth._currentUser.email
+    // }
+
+    // $scope.$watch( Auth.isAuthenticated, function ( isAuthenticated ) {
+    //   $scope.isAuthenticated = isAuthenticated;
+    //   $scope.currentUser = Auth._currentUser();
+    // });
+
     $scope.request = "Hello User";
+
   }
 
   UserProfileController.$inject = ['$scope']
