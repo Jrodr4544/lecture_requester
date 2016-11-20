@@ -4,6 +4,18 @@
   
   function LectureRequestsController($scope){
     $scope.request = "I am making a request to learn more about rails";
+    
+    var vm = this;
+
+    vm.lectureRequest = {
+      title: '',
+      content: ''
+    }
+
+    vm.create = function() {
+      debugger
+      vm.lectureRequest.title = '';
+    }
   }
 
   LectureRequestsController.$inject = ['$scope']
