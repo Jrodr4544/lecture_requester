@@ -2,14 +2,15 @@
   <div class="image">
     <img src="assets/tom.jpg">
   </div>
-  <div ng-controller="SessionController as session" class="content">
-    <a class="header">{{session.current_user.username}}</a>
+  <div class="content">
+    <a class="header">{{user.username}}</a>
     <div class="meta">
       <!-- <span class="date">Joined in 2013</span> -->
     </div>
     <div class="description">
-      <div>E-mail: {{session.current_user.email}}</div>
-      Kristy is an art director living in New York.
+      <div>E-mail: {{user.email}}</div>
+        <!-- <input type="bio" name="bio" placeholder="bio" ng-model="user.bio">
+        <p ng-show="user.bio">{{user.bio}}</p> -->
     </div>
   </div>
   <div class="extra content">
