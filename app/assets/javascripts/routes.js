@@ -35,6 +35,11 @@
               templateUrl: 'authentication/login.html',
               controller: 'AuthController as vm'
             })
+            .state('signup', {
+              url: '/signup',
+              templateUrl: 'authentication/signup.html',
+              controller: 'AuthController as vm'
+            })
 
         $urlRouterProvider.otherwise('/')
     })
