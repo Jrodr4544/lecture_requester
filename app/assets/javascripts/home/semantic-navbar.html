@@ -6,11 +6,11 @@
 </div> -->
 
 <div>
-  <ul class="ui inverted menu" ng-controller="SessionController as session">
+  <ul class="ui inverted menu" ng-controller="AuthController">
   <li class="active item" role="presentation"><a ui-sref="home.home">Home</a></li>
   <li class="item" ng-show="isAuthenticated" role="presentation"><a href="#" ui-sref="home.user">Profile</a></li>
   <li class="item" role="presentation"><a href="#" ui-sref="home.about">About</a></li>
   <li class="item right aligned" role="presentation"><a href="#" ui-sref="home.login" ng-hide="isAuthenticated">Login</a></li>
-  <li class="item right aligned" role="presentation"><a href="#" ng-show="isAuthenticated" ng-click="session.logout()">Logout</a></li>
+  <li class="item right aligned" role="presentation"><a href="#" ng-show="isAuthenticated" ng-click="logout()">Logout</a></li>
   </ul>
 </div>
