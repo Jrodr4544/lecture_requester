@@ -10,6 +10,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user
+  end
+
+  def update
+    binding.pry
+    @user = @trip.objectives.find(params[:id])
+
+    if @user.update(params)
+      redirect_to user_path(current_user), notice: 'User was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
   private
 
   def set_user
