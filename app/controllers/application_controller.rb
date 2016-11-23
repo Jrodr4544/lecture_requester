@@ -4,11 +4,11 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   helper_method :current_user
 
+  def index
+    render 'application/index'
+  end
 
   protected
-
-  def index
-  end
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
