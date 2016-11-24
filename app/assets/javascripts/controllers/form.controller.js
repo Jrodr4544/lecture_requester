@@ -3,15 +3,25 @@
   'use strict';
   
   function FormController($scope){
-    var form = this;
+    
     debugger
-    form.title   = '';
-    form.content = '';
-    form.bio     = '';
-
-    $scope.update     = function() {
+    $scope.create = function() {
       debugger
-      UserFactory.updateUser(vm.current_user);
+      $scope.lectureRequest = {
+        'lectureRequest': {
+          'title': $scope.lectureRequest.title,
+          'content': $scope.lectureRequest.content
+        }
+      }
+      debugger
+      //  should send to lecture_requests#create
+      $http({
+        method: 'POST',
+        url: 'http://localhost:3000/lecture_requests',
+        data: $scope.lecture_request
+      });
+
+      $state.go('home.home');
     }
 
   }
