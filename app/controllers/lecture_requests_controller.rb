@@ -1,5 +1,5 @@
 class LectureRequestsController < ApplicationController
-  before_action :authenticate_user, only: [:create, :destroy, :edit]
+  # before_action :authenticate_user, only: [:create, :destroy, :edit]
   before_action :set_lecture_request, only: [:show]
 
   def index
@@ -16,6 +16,7 @@ class LectureRequestsController < ApplicationController
   end
 
   def create
+    binding.pry
     @lectureRequest = current_user.lecture_requests.build(title: lecture_request_params[:title], content: lecture_request_params[:content])
     if @lectureRequest.save
       flash.now[:notice] = 'Thank you! Your Lecture Request was posted.'
@@ -76,6 +77,7 @@ class LectureRequestsController < ApplicationController
     end
 
   def lecture_request_params
+    binding.pry
     params.require(:lecture_request).permit(:title, :content)
   # might need to add comments
   end
