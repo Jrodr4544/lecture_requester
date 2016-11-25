@@ -1,15 +1,40 @@
 <h1>HELLOOO</h1>
 
 <div ng-controller="LectureRequestsController as vm" ng-click="getRequests()">Requests
-  <div ng-repeat="request in vm.allRequests">
-    <div>
-      {{request.title}}
+  <div class="ui center aligned grid" ng-repeat="request in vm.allRequests">
+    <div class="ui card">
+      <div class="content">
+        <div class="header">{{request.title}}</div>
+        <div class="description">
+          {{request.content}}
+        </div>
+      </div>
+      
+      <div class="content">
+        <span class="right floated">
+          <i class="heart outline like icon"></i>
+          {{request.user_likes.length}}
+        </span>
+        <i class="comment icon" ng-click="showComments = !showComments"></i>
+          {{request.comments.length}}
+        <div ng-show="showComments" ng-repeat="comment in request.comments">
+          <p>{{comment.text}}</p>
+        </div>
+      </div>
+      <div class="extra content">
+        <div class="ui large transparent left icon input">
+          <i class="comment outline icon"></i>
+          <input type="text" placeholder="Add Comment...">
+        </div>
+      </div>
     </div>
     <!-- need to 
-        - add the likes for a request
-          - also needs a button for heart-ing a request
-        - add the link to show the request
-          - this will have all the comments and user details, even the user's semantic ui card
+        - add a function to button that hearts a request
+        - add the click which will show all the comments and user details
+          - even a small user's semantic ui card (find from semantic ui)
+          - it will also have option to add a comment
+            - have a functioning way to add a comment
          -->
   </div>
 </div>
+
