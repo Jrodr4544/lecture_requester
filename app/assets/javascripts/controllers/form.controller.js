@@ -2,10 +2,12 @@
 ( function() {
   'use strict';
   
-  function FormController($scope){
+  function FormController($scope, $http){
     
     debugger
-    $scope.create = function() {
+    var vm = this;
+
+    vm.create = function() {
       debugger
       $scope.lectureRequest = {
         'lectureRequest': {
@@ -26,7 +28,7 @@
 
   }
 
-  FormController.$inject = ['$scope']
+  FormController.$inject = ['$scope', '$http']
 
   angular
     .module('lecture_requester')  
