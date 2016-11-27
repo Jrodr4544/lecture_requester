@@ -9,13 +9,6 @@
 
     vm.create = function() {
       debugger
-      $scope.lectureRequest = {
-        'lectureRequest': {
-          'title': $scope.lectureRequest.title,
-          'content': $scope.lectureRequest.content
-        }
-      }
-      debugger
       //  should send to lecture_requests#create
       $http({
         method: 'POST',
