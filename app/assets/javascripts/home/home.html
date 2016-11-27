@@ -1,6 +1,6 @@
 <h1>HELLOOO</h1>
 
-<div ng-controller="LectureRequestsController as vm" ng-click="getRequests()">Requests
+<div ng-controller="LectureRequestsController as vm" ng-init="vm.getRequests()">
   <div class="ui center aligned grid" ng-repeat="request in vm.allRequests">
     <div class="ui card">
       <div class="content">
@@ -24,7 +24,7 @@
       <div class="extra content">
         <div class="ui large transparent left icon input">
           <i class="comment outline icon"></i>
-          <input type="text" placeholder="Add Comment...">
+          <input type="text" ng-model='vm.comment' placeholder='Add Comment...' ng-keyup="$event.keyCode == 13 && submitComment($event)"/>
         </div>
       </div>
     </div>
