@@ -77,7 +77,7 @@ class LectureRequestsController < ApplicationController
     end
 
   def lecture_request_params
-    binding.pry
+  # binding.pry
     params.require(:lecture_request).permit(:title, :content)
   # might need to add comments
   end
