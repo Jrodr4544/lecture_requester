@@ -17,7 +17,7 @@
       console.log(error);
       alert('fail');
     });
-    
+
     // $scope.logout = Auth.logout();
 
     $scope.$on('devise:login', function(event, user) {
