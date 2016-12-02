@@ -2,44 +2,49 @@
 
   'use strict';
 
-  function SessionController(Auth,$scope,$rootScope) {
+  function SessionController(Auth,$scope,$location) {
     debugger
     var vm = this;
     vm.current_user = null;
-    
 
-    Auth.currentUser().then(function(user) {
-      // gets current user
-      // debugger
-      $rootScope.user = user
-    }, function(error) {
-      // Log on console to check out what the error is.
-      console.log(error);
-      alert('fail');
-    });
+    // this.user = function() {
+    //   Auth.currentUser().then(function(user) {
+    //     // gets current user
+    //     // debugger
+    //     return user;
+    //     vm.current_user = user;
+    //     $scope.isAuthenticated = true;
+    //     // UserService.setUser(user);
+    //   }, function(error) {
+    //     // Log on console to check out what the error is.
+    //     console.log(error);
+    //     alert('fail');
+    //   });
+    // }
 
-    // $scope.logout = Auth.logout();
+      $scope.$on('devise:new-session', function(event, currentUser) {
+        debugger
+        $scope.isAuthenticated = true;
+      });
 
-    $scope.$on('devise:login', function(event, user) {
-      $scope.isAuthenticated = true;
-      $scope.user            = user;
-      $rootScope.user        = user;
-    });
+      $scope.$on('devise:logout', function(event, oldCurrentUser) {
+        debugger
+        $scope.isAuthenticated = false;
+      });
 
-    $scope.$on('devise:new-session', function(event, currentUser) {
-      $scope.isAuthenticated = true;
-    });
+      $scope.$on('devise:new-registration', function(event, user) {
+        debugger
+        $scope.isAuthenticated = true;
+      });
 
-    $scope.$on('devise:logout', function(event, oldCurrentUser) {
-      debugger
-      $scope.isAuthenticated = false;
-      $rootScope.user        = undefined;
-    });
-
-    $scope.$on('devise:new-registration', function(event, user) {
-      $scope.isAuthenticated = true;
-      $rootScope.user = user; 
-    });
+      this.logout = function() {
+        Auth.logout().then(function(oldUser) {
+          alert("Successfully logged out!");
+          $location.path("/");
+        }, function(error) {
+          // An error occurred logging out.
+        });
+      }
 
   }
 
