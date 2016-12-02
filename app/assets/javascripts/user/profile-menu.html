@@ -7,7 +7,7 @@
       <a class="item" data-tab="second">
         Create a Lecture Request
       </a>
-      <a class="item" data-tab="third">
+      <a class="item" data-tab="third" >
         Your requests
       </a>
       <a class="item" data-tab="fourth">
@@ -17,18 +17,32 @@
   </div>
 
   <div class="twelve wide stretched column">
+    
     <div class="active ui attached tab segment" data-tab="first" >
       <div ng-include="'user/semantic-user-card.html'"></div>
     </div>
+
     <div class="ui attached tab segment" data-tab="second">
       <div ng-include="'lecture_requests/new.html'"></div>
     </div>
-    <div class="ui attached tab segment" data-tab="third">
-    Third
+
+    <div class="ui attached tab segment" data-tab="third" ng-controller="LectureRequestsController as vm" ng-init="vm.userRequests()" >
+      <div ng-repeat="request in vm.requests">
+        <div class="ui card">
+          <div class="content">
+            <div class="header">{{request.title}}</div>
+            <div class="description">
+              {{request.content}}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
     <div class="ui attached tab segment" data-tab="fourth">
     Fourth
     </div>
+
   </div>
 </div>
 
