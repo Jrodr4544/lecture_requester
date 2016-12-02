@@ -1,7 +1,14 @@
 <h1>HELLOOO</h1>
 
 <div ng-controller="LectureRequestsController as vm" ng-init="vm.getRequests()">
-  <div class="ui center aligned grid" ng-repeat="request in vm.allRequests">
+  <div class="ui search">
+    <div class="ui icon input">
+      <input ng-model="vm.search" class="prompt" type="text" placeholder="Search Lecture Requests...">
+      <i class="search icon"></i>
+    </div>
+  </div>
+
+  <div class="ui center aligned grid" ng-repeat="request in vm.allRequests | filter: vm.search">
     <div class="ui card">
       <div class="content">
         <div class="header">{{request.title}}</div>
