@@ -5,7 +5,7 @@
   function UserProfileController($scope, Auth, $state, $rootScope){
     debugger
 
-    $scope.user = $rootScope.user
+    $scope.user = Auth._currentUser
     // need to put the user details ($scope.user)as a scope by getting current user from the auth controller maybe?
 
     // $scope.updateUser = function(user) {
