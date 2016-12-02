@@ -9,19 +9,28 @@
 
     vm.allRequests;
     vm.comment;
+    vm.requests; 
     
     // $scope.lectureRequest.title   = '';
     // $scope.lectureRequest.content = '';
 
     vm.getRequests   = getRequests;
+    vm.userRequests  = userRequests;
     vm.getRequest    = getRequest;
     vm.createRequest = createRequest;
     vm.updateRequest = updateRequest;
+
 
     function getRequests() {
       debugger
       return LectureRequestsFactory.getRequests()
               .then(setRequests)
+    }
+
+    function userRequests() {
+      debugger
+      return LectureRequestsFactory.userRequests($scope.user)
+              .then(setUserRequests)
     }
 
     function getRequest() {
@@ -46,6 +55,10 @@
       return vm.allRequests = data; // unless response is already data.data then this should be set as data
     }
 
+    function setUserRequests(data) {
+      debugger
+      return vm.requests = data.lecture_requests; // unless response is already data.data then this should be set as data
+    }
 
     $scope.submitComment = function($event) {
       debugger
