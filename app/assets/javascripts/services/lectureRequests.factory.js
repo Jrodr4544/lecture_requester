@@ -2,9 +2,10 @@
 
   'use strict';
 
-  function LectureRequestsFactory($http) {
+  function LectureRequestsFactory($rootScope,$http) {
     return {
         getRequests: getRequests,
+       userRequests: userRequests,
          getRequest: getRequest,
       createRequest: createRequest,
       updateRequest: updateRequest
@@ -14,6 +15,12 @@
       debugger
       // no ssl
       return $http.get('http://localhost:3000/lecture_requests.json')
+                  .then(handleResponse)
+    }
+
+    function userRequests(user) {
+      debugger
+      return $http.get('http://localhost:3000/users/'+user.id+'.json')
                   .then(handleResponse)
     }
 
