@@ -30,7 +30,7 @@
       <div ng-repeat="request in vm.requests">
         <div class="ui card">
           <div class="content">
-            <div class="header">{{request.title}}</div>
+            <div class="header"><a ui-sref="lecture_request({id: {{request.id}}})">{{request.title}}</a></div>
             <div class="description">
               {{request.content}}
             </div>
