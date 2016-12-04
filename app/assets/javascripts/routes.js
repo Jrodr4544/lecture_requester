@@ -40,7 +40,7 @@
               templateUrl: 'lecture_requests/show.html',
               controller: 'LectureRequestsController as vm',
               resolve: {
-                          user: function ($http, $stateParams) {
+                          request: function ($http, $stateParams) {
                             // http call to get user's profile
                             debugger
                             return $http.get('http://localhost:3000/lecture_requests/' + $stateParams.id);
