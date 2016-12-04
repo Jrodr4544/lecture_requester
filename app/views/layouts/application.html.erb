@@ -1,3 +1,4 @@
+<!-- application/index -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,6 +10,10 @@
   </head>
 
   <body ng-app="lecture_requester" ng-controller="HomeController">
-    <%= yield %>
+    <nav-bar></nav-bar>
+    <%=yield%>
+    <ui-view></ui-view>
   </body>
 </html>
+
+
