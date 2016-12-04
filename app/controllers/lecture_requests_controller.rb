@@ -12,7 +12,9 @@ class LectureRequestsController < ApplicationController
   end
 
   def show
-    render json: @lectureRequest
+    if current_user
+      render json: @lectureRequest, root: true
+    end
   end
 
   def create
@@ -76,10 +78,10 @@ class LectureRequestsController < ApplicationController
       @lectureRequest = LectureRequest.find(params[:id])
     end
 
-  def lecture_request_params
-  # binding.pry
-    params.require(:lecture_request).permit(:title, :content)
-  # might need to add comments
-  end
+    def lecture_request_params
+    # binding.pry
+      params.require(:lecture_request).permit(:title, :content)
+    # might need to add comments
+    end
 
 end
