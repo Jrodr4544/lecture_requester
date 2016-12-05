@@ -2,16 +2,17 @@
 ( function() {
   'use strict';
   
-  function LectureRequestsController($scope, $http, LectureRequestsFactory){
-    $scope.request = "I am making a request to learn more about rails";
+  function LectureRequestsController($scope, $http, LectureRequestsFactory, request){
+    debugger
     
     var vm = this;
 
     vm.allRequests;
     vm.comment;
     vm.requests; 
+    vm.request = $scope.$resolve.request;
     
-    // $scope.lectureRequest.title   = '';
+    // vm.request;
     // $scope.lectureRequest.content = '';
 
     vm.getRequests   = getRequests;
