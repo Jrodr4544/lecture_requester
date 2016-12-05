@@ -4,7 +4,7 @@
   
   angular
     .module('lecture_requester')  
-    .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+    .config(function( $stateProvider, $urlRouterProvider, $httpProvider) {
         
         $httpProvider.defaults.withCredentials = true;
 
@@ -38,13 +38,19 @@
             .state('lecture_request', {
               url: '/lecture_request/:id',
               templateUrl: 'lecture_requests/show.html',
-              controller: 'LectureRequestsController as vm',
+              controller: 'LectureRequestsController as request',
               resolve: {
                           request: function ($http, $stateParams) {
                             // http call to get user's profile
                             debugger
-                            return $http.get('http://localhost:3000/lecture_requests/' + $stateParams.id);
+                            return $http.get('http://localhost:3000/lecture_requests/' + $stateParams.id)
+                                      .then(function(response) {
+                                        debugger
+                                        // need to include this as a scope or variable to then add to DOM
+                                        return response.data;
+                                      })
                           }
+                          // controller: 'LectureRequestsController'
                         }
             })
             .state('signup', {
