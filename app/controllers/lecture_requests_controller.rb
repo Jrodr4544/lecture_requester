@@ -12,7 +12,7 @@ class LectureRequestsController < ApplicationController
   end
 
   def show
-    if current_user
+    if user_signed_in?
       render json: @lectureRequest, root: true
     end
   end
