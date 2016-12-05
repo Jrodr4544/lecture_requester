@@ -15,23 +15,23 @@
               controller: 'HomeController as vm'
             })
             .state('home.home', {
-              url: '/home',
+              url: 'home',
               templateUrl: 'home/home.html',
               controller: 'HomeController as vm'
             })
             // nested route below at home.lecture_requests
             .state('home.user', {
-              url: '/user/{id}',
+              url: 'user/{id}',
               templateUrl: 'user/profile.html',
               controller: 'UserProfileController as vm'
             })
             .state('home.about', {
-              url: '/about',
+              url: 'about',
               templateUrl: 'home/about.html',
               controller: 'HomeController as vm'
             })
             .state('home.login', {
-              url: '/login',
+              url: 'login',
               templateUrl: 'authentication/login.html',
               controller: 'AuthController as vm'
             })
@@ -41,7 +41,7 @@
               controller: 'LectureRequestsController as request',
               resolve: {
                           request: function ($http, $stateParams) {
-                            // http call to get user's profile
+                            // http call to get lecture request
                             debugger
                             return $http.get('http://localhost:3000/lecture_requests/' + $stateParams.id)
                                       .then(function(response) {
@@ -50,7 +50,6 @@
                                         return response.data;
                                       })
                           }
-                          // controller: 'LectureRequestsController'
                         }
             })
             .state('signup', {
@@ -59,7 +58,7 @@
               controller: 'AuthController as vm'
             })
 
-        $urlRouterProvider.otherwise('/')
+        $urlRouterProvider.otherwise('login')
     })
 
 }());
