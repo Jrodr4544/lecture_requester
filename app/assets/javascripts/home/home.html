@@ -11,7 +11,7 @@
   <div class="ui center aligned grid" ng-repeat="request in vm.allRequests | filter: vm.search">
     <div class="ui card">
       <div class="content">
-        <div class="header">{{request.title}}</div>
+        <div class="header"><a ui-sref="lecture_request({id: {{request.id}}})">{{request.title}}</a></div>
         <div class="description">
           {{request.content}}
         </div>
