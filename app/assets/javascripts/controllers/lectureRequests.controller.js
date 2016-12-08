@@ -11,7 +11,7 @@
     vm.comment;
     vm.requests; 
     vm.request = $scope.$resolve.request;
-    
+    vm.hearts  = $scope.user.hearts
     // vm.request;
     // $scope.lectureRequest.content = '';
 
@@ -20,6 +20,7 @@
     vm.getRequest    = getRequest;
     vm.createRequest = createRequest;
     vm.updateRequest = updateRequest;
+    vm.likedRequests = likedRequests;
 
 
     function getRequests() {
@@ -52,6 +53,11 @@
               .then(/*callback function*/)
     }
 
+    function likedRequests() {
+      return LectureRequestsFactory.userRequests($scope.user)
+              .then(setLikedRequests)
+    }
+
     function setRequests(data) {
       return vm.allRequests = data; // unless response is already data.data then this should be set as data
     }
@@ -59,6 +65,11 @@
     function setUserRequests(data) {
       debugger
       return vm.requests = data.lecture_requests; // unless response is already data.data then this should be set as data
+    }
+
+    function setLikedRequests(data) {
+      debugger
+      return vm.hearts = data.lecture_requests; // unless response is already data.data then this should be set as data
     }
 
     $scope.submitComment = function($event) {
