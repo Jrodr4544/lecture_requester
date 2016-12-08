@@ -39,8 +39,11 @@
       </div>
     </div>
 
-    <div class="ui attached tab segment" data-tab="fourth">
+    <div class="ui attached tab segment" data-tab="fourth" ng-controller="LectureRequestsController as vm" ng-init="vm.likedRequests()">
     Fourth
+      <div ng-repeat="request in vm.hearts">
+        {{request}}
+      </div>
     </div>
 
   </div>
