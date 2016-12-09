@@ -28,7 +28,7 @@
     function likedRequests(user) {
       debugger
       return $http.get('http://localhost:3000/users/'+user.id+'/hearts.json')
-                .then(handleResponse)
+                  .then(handleResponse)
     }
 
     function addComment(id, data) {
