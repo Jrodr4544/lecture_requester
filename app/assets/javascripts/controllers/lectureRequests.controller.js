@@ -52,7 +52,8 @@
     }
 
     function likedRequests() {
-      return LectureRequestsFactory.userRequests($scope.user)
+      debugger
+      return LectureRequestsFactory.likedRequests($scope.user)
               .then(setLikedRequests)
     }
 
@@ -73,16 +74,14 @@
 
     function setLikedRequests(data) {
       debugger
-      return vm.hearts = data.lecture_requests; // unless response is already data.data then this should be set as data
+      return vm.hearts = data; // unless response is already data.data then this should be set as data
     }
 
 
     $scope.submitComment = function($event) {
       debugger
         alert('submitting comment');
-        addComment(this.request.id, $scope.lectureRequest);
-        console.log($event);
-        console.log($scope.username);
+        addComment(this.request.id, $scope.lectureRequest.comment);
     }
 
   }
