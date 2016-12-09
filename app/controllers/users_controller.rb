@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def show
     # binding.pry
-    if current_user
+    if user_signed_in?
       respond_to do |format|
         format.html { render :show }
         format.json { render json: @user, include: ['lecture_requests.comments', 'lecture_requests.user_likes']}
