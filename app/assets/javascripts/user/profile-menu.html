@@ -40,10 +40,15 @@
     </div>
 
     <div class="ui attached tab segment" data-tab="fourth" ng-controller="LectureRequestsController as vm" ng-init="vm.likedRequests()">
-    Fourth
       <div ng-repeat="request in vm.hearts">
-        {{request}}
-      </div>
+        <div class="ui card">
+          <div class="content">
+            <div class="header"><a ui-sref="lecture_request({id: {{request.id}}})">{{request.title}}</a></div>
+            <div class="description">
+              {{request.content}}
+            </div>
+          </div>
+        </div>
     </div>
 
   </div>
