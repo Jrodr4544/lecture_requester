@@ -7,10 +7,12 @@
     
     var vm = this;
 
+    vm.users;
     vm.allRequests;
     vm.requests; 
     vm.request = $scope.$resolve.request;
     vm.hearts  = $scope.user.hearts
+
 
     vm.getRequests   = getRequests;
     vm.userRequests  = userRequests;
@@ -64,19 +66,19 @@
     }
 
     function setRequests(data) {
-      return vm.allRequests = data; // unless response is already data.data then this should be set as data
+      debugger
+      return vm.allRequests = data;
     }
 
     function setUserRequests(data) {
       debugger
-      return vm.requests = data.lecture_requests; // unless response is already data.data then this should be set as data
+      return vm.requests = data.lecture_requests;
     }
 
     function setLikedRequests(data) {
       debugger
-      return vm.hearts = data; // unless response is already data.data then this should be set as data
+      return vm.hearts = data;
     }
-
 
     $scope.submitComment = function($event) {
       debugger
