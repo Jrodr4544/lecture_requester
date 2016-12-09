@@ -8,12 +8,9 @@
     var vm = this;
 
     vm.allRequests;
-    vm.comment;
     vm.requests; 
     vm.request = $scope.$resolve.request;
     vm.hearts  = $scope.user.hearts
-    // vm.request;
-    // $scope.lectureRequest.content = '';
 
     vm.getRequests   = getRequests;
     vm.userRequests  = userRequests;
@@ -21,6 +18,7 @@
     vm.createRequest = createRequest;
     vm.updateRequest = updateRequest;
     vm.likedRequests = likedRequests;
+    vm.addComment    = addComment;
 
 
     function getRequests() {
@@ -48,14 +46,20 @@
               })
     }
 
-    function updateRequest() {
-      return LectureRequestsFactory.updateRequest()
+    function updateRequest(id, data) {
+      return LectureRequestsFactory.updateRequest(id, data)
               .then(/*callback function*/)
     }
 
     function likedRequests() {
       return LectureRequestsFactory.userRequests($scope.user)
               .then(setLikedRequests)
+    }
+
+    function addComment(id, data) {
+      debugger
+      return LectureRequestsFactory.addComment(id, data)
+              .then(console.log(response))
     }
 
     function setRequests(data) {
@@ -72,17 +76,15 @@
       return vm.hearts = data.lecture_requests; // unless response is already data.data then this should be set as data
     }
 
+
     $scope.submitComment = function($event) {
       debugger
         alert('submitting comment');
-        vm.comment = $event.value;
+        addComment(this.request.id, $scope.lectureRequest);
         console.log($event);
         console.log($scope.username);
     }
-    // vm.create = function() {
-    //   debugger
-    //   vm.lectureRequest.title = '';
-    // }
+
   }
 
   LectureRequestsController.$inject = ['$scope', '$http', 'LectureRequestsFactory']
