@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   resources :lecture_requests, only: [:create, :show, :update, :index, :destroy]
 
-  post 'lecture_requests/:id/heart', to: 'lecture_request#heart_lecture_request'
-  post 'lecture_requests/:id/comment', to: 'lecture_request#comment_lecture_request'
+  post 'lecture_requests/:id/heart', to: 'lecture_requests#heart_lecture_request'
+  post 'lecture_requests/:id/comment', to: 'lecture_requests#comment_lecture_request'
+  # post 'lecture_requests/:id/comment', to: 'comments#comment_lecture_request'
 
 end
