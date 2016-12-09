@@ -53,15 +53,24 @@ class LectureRequestsController < ApplicationController
 
   def comment_lecture_request
     binding.pry
-    # setting the lecture request found by params id so that it passes strong params
-    params[:lecture_request] = @lectureRequest
-    @lectureRequest.comments.build(lecture_request_params[:comments])
+    # @lectureRequest.comments.build(lecture_request_params[:comments])
+    @lectureRequest.comments.create(text: params[:comment][:text],user_id: current_user.id,lecture_request_id: params[:lecture_request][:id])
     if @lectureRequest.save
       flash.now[:notice] = 'Thank you! Your comment was posted to this Lecture Request.'
       render json: @lectureRequest, status: 201
     else
       render json: @lectureRequest, status: 404
       # try - render json: {errors: @lectureRequest.errors.full_messages}, status: unprocessable_entity
+    end
+  end
+
+  def liked_requests
+    # binding.pry
+    if current_user
+      @likedRequests = current_user.hearts.map {|heart| heart.lecture_request}
+      render json: @likedRequests, status: 201
+    else
+      render status: 404
     end
   end
 
@@ -86,8 +95,7 @@ class LectureRequestsController < ApplicationController
 
     def lecture_request_params
     binding.pry
-      params.require(:lecture_request).permit(:title, :content, :comments => [:text])
-    # might need to add comments
+      params.require(:lecture_request).permit(:id, :title, :content, :comment)
     end
 
 end
