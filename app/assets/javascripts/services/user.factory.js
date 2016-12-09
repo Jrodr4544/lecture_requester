@@ -8,11 +8,8 @@
     vm.current_user = null;
 
     this.getUser = Auth.currentUser().then(function(user) {
-      // gets current user
-      // debugger
       vm.current_user = user;
       $scope.isAuthenticated = true;
-      // UserService.setUser(user);
     }, function(error) {
       // Log on console to check out what the error is.
       console.log(error);
@@ -38,18 +35,7 @@
       return $http(req)
         .catch(handleError);
     }
-    // var u = {
-    //     userArray: []
-    // };
 
-    // u.get = function(id) {
-    //   return $http.get('/users/' + id + '.json').then(function(res) {
-    //       debugger
-    //       console.log('request: ', res.data);
-    //       angular.copy(res.data, u.userArray);
-    //   });
-    // };
-      // return u;
   }
 
   UserFactory.$inject = ['$http', 'Auth']
