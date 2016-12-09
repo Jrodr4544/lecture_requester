@@ -7,6 +7,7 @@
         getRequests: getRequests,
        userRequests: userRequests,
          getRequest: getRequest,
+         addComment: addComment,
       createRequest: createRequest,
       updateRequest: updateRequest
     }
@@ -26,6 +27,24 @@
 
     function getRequest() {
 
+    }
+
+    function addComment(id, data) {
+      debugger
+      var req = {
+        method: 'POST',
+        url: 'http://localhost:3000/lecture_requests/'+id+'/comment',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        data: {
+          id: id,
+          lecture_request: data
+        }
+      }
+
+      return $http(req)
+                .catch(handleError)
     }
 
     function createRequest(request) {
