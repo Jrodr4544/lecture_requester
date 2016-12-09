@@ -27,7 +27,7 @@
         <i class="comment icon" ng-click="showComments = !showComments"></i>
           {{request.comments.length}}
         <div ng-show="showComments" ng-repeat="comment in request.comments">
-          <p>{{comment.text}}</p>
+          <p>{{comment.commenter_username}} said: {{comment.text}}</p>
         </div>
       </div>
       <!-- need to fix the ng-model because all inputs are typing at once. need to also send the id of the request where comment is being submitted -->
