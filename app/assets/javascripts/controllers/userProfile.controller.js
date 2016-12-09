@@ -6,14 +6,6 @@
     debugger
 
     $scope.user = Auth._currentUser
-    // need to put the user details ($scope.user)as a scope by getting current user from the auth controller maybe?
-
-    // $scope.updateUser = function(user) {
-    //                 $http.post("/users/:id", user)
-    //                 .success(function(data) {
-
-    //                 });
-    // }
   }
 
   UserProfileController.$inject = ['$scope', 'Auth', '$state', '$rootScope']
