@@ -6,7 +6,7 @@
     return {
         getRequests: getRequests,
        userRequests: userRequests,
-         getRequest: getRequest,
+      likedRequests: likedRequests,
          addComment: addComment,
       createRequest: createRequest,
       updateRequest: updateRequest
@@ -25,8 +25,10 @@
                   .then(handleResponse)
     }
 
-    function getRequest() {
-
+    function likedRequests(user) {
+      debugger
+      return $http.get('http://localhost:3000/users/'+user.id+'/hearts.json')
+                .then(handleResponse)
     }
 
     function addComment(id, data) {
@@ -39,7 +41,7 @@
         },
         data: {
           id: id,
-          lecture_request: data
+          comment: data
         }
       }
 
