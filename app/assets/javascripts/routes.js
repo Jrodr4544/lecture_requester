@@ -21,7 +21,7 @@
             })
             // nested route below at home.lecture_requests
             .state('home.user', {
-              url: 'user/{id}',
+              url: 'user',
               templateUrl: 'user/profile.html',
               controller: 'UserProfileController as vm'
             })
