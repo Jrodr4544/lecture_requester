@@ -1,15 +1,15 @@
 <br>
 
-<div ng-controller="LectureRequestsController as vm" ng-init="vm.getRequests()">
+<div ng-controller="LectureRequestsController as vm" ng-init="LectureRequestsFactory.getRequests()">
   <div class="ui search">
     <div class="ui fluid icon input">
-      <input ng-model="vm.search" class="prompt" type="text" placeholder="Search Lecture Requests...">
+      <input ng-model="search" class="prompt" type="text" placeholder="Search Lecture Requests...">
       <i class="search icon"></i>
     </div>
   </div>
 
 <br>
-  <div class="ui center aligned grid" ng-repeat="request in vm.allRequests | filter: vm.search">
+  <div class="ui center aligned grid" ng-repeat="request in LectureRequestsFactory.requests() | filter: search">
     <div></div>
     <div class="ui card">
       <div class="content">
@@ -21,7 +21,7 @@
       
       <div class="content">
         <span class="right floated">
-          <i class="heart outline like icon"></i>
+          <i class="heart outline like icon" ng-controller="UserProfileController as user" ng-click="heartRequest($event)"></i>
           {{request.user_likes.length}}
         </span>
         <i class="comment icon" ng-click="showComments = !showComments"></i>
@@ -30,7 +30,7 @@
           <p>{{comment.commenter_username}} said: {{comment.text}}</p>
         </div>
       </div>
-      <!-- need to fix the ng-model because all inputs are typing at once. need to also send the id of the request where comment is being submitted -->
+      <!-- need to fix the heart button. need to also send the id of the request where comment is being submitted -->
       <div class="extra content">
         <div ng-controller="AuthController as Auth" ng-show="isAuthenticated" class="ui large transparent left icon input">
           <i class="comment outline icon"></i>
