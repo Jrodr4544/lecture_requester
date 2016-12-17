@@ -7,78 +7,84 @@
     
     var vm = this;
 
-    vm.users;
-    vm.allRequests;
-    vm.requests; 
-    vm.request = $scope.$resolve.request;
-    vm.hearts  = $scope.user.hearts
+    // vm.users;
+    // vm.allRequests;
+    // vm.requests; 
+    // vm.request = $scope.$resolve.request;
+    // vm.hearts  = $scope.user.hearts
+    var scope = $scope;
+    scope.LectureRequestsFactory = LectureRequestsFactory;
+
+    // vm.getRequests   = getRequests;
+    // vm.userRequests  = userRequests;
+    // vm.getRequest    = getRequest;
+    // vm.createRequest = createRequest;
+    // vm.updateRequest = updateRequest;
+    // vm.likedRequests = likedRequests;
+    // vm.addComment    = addComment;
 
 
-    vm.getRequests   = getRequests;
-    vm.userRequests  = userRequests;
-    vm.getRequest    = getRequest;
-    vm.createRequest = createRequest;
-    vm.updateRequest = updateRequest;
-    vm.likedRequests = likedRequests;
-    vm.addComment    = addComment;
+    // function getRequests() {
+    //   debugger
+    //   scope.LectureRequestsFactory.getRequests()
+    //           // .then(setRequests)
+    // }
 
+    // function userRequests() {
+    //   debugger
+    //   return LectureRequestsFactory.userRequests($scope.user)
+    //           .then(setUserRequests)
+    // }
 
-    function getRequests() {
-      debugger
-      return LectureRequestsFactory.getRequests()
-              .then(setRequests)
-    }
+    // function getRequest() {
+    //   return LectureRequestsFactory.getRequest()
+    //           .then(/*callback function*/)
+    // }
 
-    function userRequests() {
-      debugger
-      return LectureRequestsFactory.userRequests($scope.user)
-              .then(setUserRequests)
-    }
+    // function createRequest() {
+    //   debugger
+    //   return LectureRequestsFactory.createRequest($scope.lectureRequest)
+    //           .then(function(response){
+    //             console.log(response);
+    //           })
+    // }
 
-    function getRequest() {
-      return LectureRequestsFactory.getRequest()
-              .then(/*callback function*/)
-    }
+    // function updateRequest(id, data) {
+    //   return LectureRequestsFactory.updateRequest(id, data)
+    //           .then(/*callback function*/)
+    // }
 
-    function createRequest() {
-      debugger
-      return LectureRequestsFactory.createRequest($scope.lectureRequest)
-              .then(function(response){
-                console.log(response);
-              })
-    }
+    // function likedRequests() {
+    //   debugger
+    //   return LectureRequestsFactory.likedRequests($scope.user)
+    //           .then(setLikedRequests)
+    // }
 
-    function updateRequest(id, data) {
-      return LectureRequestsFactory.updateRequest(id, data)
-              .then(/*callback function*/)
-    }
+    // function addComment(id, data) {
+    //   debugger
+    //   return LectureRequestsFactory.addComment(id, data)
+    //           .then(console.log(response))
+    // }
 
-    function likedRequests() {
-      debugger
-      return LectureRequestsFactory.likedRequests($scope.user)
-              .then(setLikedRequests)
-    }
+    // function setRequests(data) {
+    //   debugger
+    //   vm.allRequests = data;
+    // }
 
-    function addComment(id, data) {
-      debugger
-      return LectureRequestsFactory.addComment(id, data)
-              .then(console.log(response))
-    }
+    // function setUserRequests(data) {
+    //   debugger
+    //   return vm.requests = data.lecture_requests;
+    // }
 
-    function setRequests(data) {
-      debugger
-      return vm.allRequests = data;
-    }
+    // function setLikedRequests(data) {
+    //   debugger
+    //   return vm.hearts = data;
+    // }
 
-    function setUserRequests(data) {
-      debugger
-      return vm.requests = data.lecture_requests;
-    }
-
-    function setLikedRequests(data) {
-      debugger
-      return vm.hearts = data;
-    }
+    // function heartRequest() {
+    //   debugger
+    //   $scope.user
+    // }
 
     $scope.submitComment = function($event) {
       debugger
