@@ -4,21 +4,27 @@
 
   function LectureRequestsFactory($rootScope,$http) {
     var vm = this;
-
+    var LectureRequestsFactory = {};
+        LectureRequestsFactory.allRequests  = [];
+        LectureRequestsFactory.userRequests = [];
+    // return LectureRequestsFactory; // not needed because the return below is doing it :-)
+    
     return {
-              users: this.users,
-        allRequests: this.allRequests,
-           requests: requests,
-            request: this.request,
-             hearts: this.hearts,
-       userRequests: userRequests,
-    getUserRequests: getUserRequests,
-        getRequests: getRequests,
-      likedRequests: likedRequests,
-         addComment: addComment,
-      createRequest: createRequest,
-       heartRequest: heartRequest,
-      updateRequest: updateRequest
+              // users: vm.users,
+        // allRequests: vm.allRequests,
+           // requests: requests,
+            // request: vm.request,
+             // hearts: vm.hearts,
+       // userRequests: vm.userRequests,
+LectureRequestsFactory: LectureRequestsFactory,
+       getUserRequests: getUserRequests,
+    // allUserRequests: allUserRequests,
+           getRequests: getRequests,
+         likedRequests: likedRequests,
+            addComment: addComment, 
+         createRequest: createRequest,
+          heartRequest: heartRequest, 
+         updateRequest: updateRequest 
     }
 
     function getRequests() {
@@ -32,13 +38,11 @@
     function getUserRequests(user) {
       debugger
       return $http.get('http://localhost:3000/users/'+user.id+'.json')
-                  .then(handleResponse)
-               // .then(setUserRequests)
-
+                  .then(setUserRequests)
     }
 
     function heartRequest(data) {
-
+      debugger
       $http.post('/lecture_requests/'+$scope.request.id+'/heart', data).success(function(data){
         debugger
         // This will store the data in hearts for this service which can then be accessed. 
@@ -69,7 +73,14 @@
       }
 
       return $http(req)
+                .then(refresh)
                 .catch(handleError)
+    }
+
+    // This function is used to refresh allRequests. After a comment is submitted this should trigger
+    function refresh() {
+      LectureRequestsFactory.allRequests = [];
+      getRequests();
     }
 
     function createRequest(request) {
@@ -111,16 +122,31 @@
     // This is a callback function that stores a response and sets it as the service's allRequests
     function setRequests(data) {
       debugger
-      return vm.allRequests = data.data;
+      var requests = data.data;
+      for (var i = 0; i < requests.length; i++) {
+        requests[i]
+        debugger
+        // pushing the response data into allRequests
+        LectureRequestsFactory.allRequests.push({id: requests[i].id, content: requests[i].content, title: requests[i].title, comments: requests[i].comments, user_likes: requests[i].user_likes})
+      }
     }
 
     // This is a callback function that stores a response and sets it as the service's userRequests
     function setUserRequests(data) {
       debugger
-      // changed from requests to userRequests
-      return vm.userRequests = data.lecture_requests;
-      // need to define a function that returns just the userRequests
+      var requests = data.data;
+      for (var i = 0; i < requests.length; i++) {
+        requests[i]
+        debugger
+        // pushing the response data into userRequests
+        LectureRequestsFactory.userRequests.push({id: requests[i].id, content: requests[i].content, title: requests[i].title, comments: requests[i].comments, user_likes: requests[i].user_likes})
+      }
     }
+
+    // This function can be called from a view to return the service's current userRequests but may no longer be needed
+    // function allUserRequests() {
+    //   return vm.userRequests;
+    // }
 
     function setLikedRequests(data) {
       debugger
