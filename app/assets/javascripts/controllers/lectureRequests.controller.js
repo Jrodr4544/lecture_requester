@@ -5,15 +5,34 @@
   function LectureRequestsController($scope, $http, LectureRequestsFactory, request){
     debugger
     
-    var vm = this;
-
-    // vm.users;
-    // vm.allRequests;
-    // vm.requests; 
-    // vm.request = $scope.$resolve.request;
-    // vm.hearts  = $scope.user.hearts
+    var vm    = this;
     var scope = $scope;
-    scope.LectureRequestsFactory = LectureRequestsFactory;
+    
+    scope.service = LectureRequestsFactory;
+    vm.requests = LectureRequestsFactory.LectureRequestsFactory.allRequests;
+    // $scope.requests = LectureRequestsFactory.allRequests;
+
+
+    $scope.submitComment = function($event) {
+      debugger
+      alert('submitting comment');
+      scope.service.addComment(this.request.id, $scope.lectureRequest.comment);
+      debugger
+      var i = $event;
+      // need to push this comment to the scope
+      // $scope.items.push('wazzzup');
+    }
+
+  }
+
+  LectureRequestsController.$inject = ['$scope', '$http', 'LectureRequestsFactory']
+
+  angular
+    .module('lecture_requester')  
+    .controller('LectureRequestsController', LectureRequestsController)
+}());
+
+  // Below functions commented out because they can now be called straight from the DOM
 
     // vm.getRequests   = getRequests;
     // vm.userRequests  = userRequests;
@@ -85,18 +104,3 @@
     //   debugger
     //   $scope.user
     // }
-
-    $scope.submitComment = function($event) {
-      debugger
-        alert('submitting comment');
-        addComment(this.request.id, $scope.lectureRequest.comment);
-    }
-
-  }
-
-  LectureRequestsController.$inject = ['$scope', '$http', 'LectureRequestsFactory']
-
-  angular
-    .module('lecture_requester')  
-    .controller('LectureRequestsController', LectureRequestsController)
-}());
