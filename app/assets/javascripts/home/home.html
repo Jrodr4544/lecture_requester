@@ -1,6 +1,6 @@
 <br>
 
-<div ng-controller="LectureRequestsController as vm" ng-init="LectureRequestsFactory.getRequests()">
+<div ng-controller="LectureRequestsController as vm" ng-init="service.getRequests()">
   <div class="ui search">
     <div class="ui fluid icon input">
       <input ng-model="search" class="prompt" type="text" placeholder="Search Lecture Requests...">
@@ -9,7 +9,7 @@
   </div>
 
 <br>
-  <div class="ui center aligned grid" ng-repeat="request in LectureRequestsFactory.requests() | filter: search">
+  <div class="ui center aligned grid" ng-repeat="request in vm.requests | filter: search">
     <div></div>
     <div class="ui card">
       <div class="content">
