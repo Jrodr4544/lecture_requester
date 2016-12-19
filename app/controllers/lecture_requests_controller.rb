@@ -41,18 +41,25 @@ class LectureRequestsController < ApplicationController
   end
 
   def heart_lecture_request
-    @lectureRequest.user_likes.build(user_id: current_user.id)
-    if @lectureRequest.save
-      flash.now[:notice] = 'Thank you! You liked this Lecture Request.'
-      render json: @lectureRequest, status: 201
-    else
+    binding.pry
+    # if the user already liked the request don't add to the requests user_likes
+
+    if @lectureRequest.user_likes.find(current_user)
+      # Need to define a way to unlike. probably use it right here in this conditional. If the user is found in the user_likes
+      # destroy the heart (:( oh no.. )
+      flash.now[:notice] = 'You already liked this Lecture Request.'
       render json: @lectureRequest, status: 404
+    else
+      @lectureRequest.user_likes << current_user
+      @lectureRequest.save 
+      flash.now[:notice] = 'Thanks! You liked this Lecture Request.'
+      render json: @lectureRequest, status: 201
       # try - render json: {errors: @lectureRequest.errors.full_messages}, status: unprocessable_entity
     end
   end
 
   def comment_lecture_request
-    binding.pry
+    # binding.pry
     # @lectureRequest.comments.build(lecture_request_params[:comments])
     @lectureRequest.comments.create(text: params[:comment][:text],user_id: current_user.id,lecture_request_id: params[:lecture_request][:id])
     if @lectureRequest.save
