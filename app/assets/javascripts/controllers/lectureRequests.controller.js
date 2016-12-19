@@ -9,6 +9,8 @@
     var scope = $scope;
     
     scope.service = LectureRequestsFactory;
+    // The line below assigns one request for when the show action is called. It gets the resolved request 
+    vm.request  = scope.$resolve.request;
     vm.requests = LectureRequestsFactory.LectureRequestsFactory.allRequests;
     // $scope.requests = LectureRequestsFactory.allRequests;
 
