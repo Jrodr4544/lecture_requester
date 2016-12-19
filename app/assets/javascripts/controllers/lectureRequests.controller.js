@@ -12,8 +12,22 @@
     // The line below assigns one request for when the show action is called. It gets the resolved request 
     vm.request  = scope.$resolve.request;
     vm.requests = LectureRequestsFactory.LectureRequestsFactory.allRequests;
-    // $scope.requests = LectureRequestsFactory.allRequests;
 
+    scope.$on('requests:updated', function(event,data) {
+      debugger
+      // event listener for when LectureRequestsFactory's allRequests get's updated sets the new requests accordingly 
+      vm.requests = data;
+    });
+
+    // scope.$watch('LectureRequestsFactory.LectureRequestsFactory.allRequests', function (newVal, oldVal, scope) {
+    //   vm.requests = LectureRequestsFactory.LectureRequestsFactory.allRequests;
+    //   debugger
+    //   if(newVal != oldVal) { 
+    //     vm.requests = newVal;
+    //   } else {
+    //     vm.requests = LectureRequestsFactory.LectureRequestsFactory.allRequests;
+    //   }
+    // });
 
     $scope.submitComment = function($event) {
       debugger
