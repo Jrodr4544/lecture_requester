@@ -123,12 +123,18 @@ LectureRequestsFactory: LectureRequestsFactory,
     function setRequests(data) {
       debugger
       var requests = data.data;
-      for (var i = 0; i < requests.length; i++) {
-        requests[i]
+      if (requests.length != LectureRequestsFactory.allRequests.length) {
+        for (var i = 0; i < requests.length; i++) {
+          requests[i]
+          debugger
+          // pushing the response data into allRequests
+          LectureRequestsFactory.allRequests.push({id: requests[i].id, content: requests[i].content, title: requests[i].title, comments: requests[i].comments, user_likes: requests[i].user_likes})
+        }
         debugger
-        // pushing the response data into allRequests
-        LectureRequestsFactory.allRequests.push({id: requests[i].id, content: requests[i].content, title: requests[i].title, comments: requests[i].comments, user_likes: requests[i].user_likes})
+        // broadcasting the new requests when any changes get made
+        $rootScope.$broadcast('requests:updated', LectureRequestsFactory.allRequests);
       }
+
     }
 
     // This is a callback function that stores a response and sets it as the service's userRequests
