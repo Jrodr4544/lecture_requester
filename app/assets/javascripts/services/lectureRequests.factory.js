@@ -160,7 +160,7 @@ LectureRequestsFactory: LectureRequestsFactory,
 
     function setLikedRequests(data) {
       debugger
-      return vm.hearts = data;
+      return vm.userRequests = data;
     }
 
   }
