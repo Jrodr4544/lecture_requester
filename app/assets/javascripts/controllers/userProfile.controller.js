@@ -17,8 +17,8 @@
       // then need to update the ng-model for the hearts
 
       var data = {
-        lecture_request_id: $scope.request.id,
-                   user_id: Auth._currentUser.id
+        lecture_request_id: $scope.request.id
+                   // user_id: Auth._currentUser.id
       }
 
       LectureRequestsFactory.heartRequest(data);
