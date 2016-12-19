@@ -43,11 +43,15 @@ LectureRequestsFactory: LectureRequestsFactory,
 
     function heartRequest(data) {
       debugger
-      $http.post('/lecture_requests/'+$scope.request.id+'/heart', data).success(function(data){
+      // This will store the data in hearts for this service which can then be accessed. 
+      $http.post('/lecture_requests/'+data.lecture_request_id+'/heart', data).then(function(data){
         debugger
-        // This will store the data in hearts for this service which can then be accessed. 
-        // Maybe all the lecture requests and other details should be here in its $scope.
-        vm.hearts = data;
+        // This variable gets the request in allRequests that matches the response and then the user_likes for it gets updated
+        var request = LectureRequestsFactory.allRequests.filter(function(request){
+                        if (request.id == data.data.id) {return request};
+                      })[0];
+        debugger
+        request.user_likes = data.data.user_likes;
       })
     }
 
