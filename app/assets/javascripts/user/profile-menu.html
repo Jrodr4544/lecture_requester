@@ -39,8 +39,8 @@
       </div>
     </div>
 
-    <div class="ui attached tab segment" data-tab="fourth" ng-controller="LectureRequestsController as vm" ng-init="vm.likedRequests()">
-      <div ng-repeat="request in vm.hearts">
+    <div class="ui attached tab segment" data-tab="fourth" ng-controller="UserProfileController as vm" ng-init="service.likedRequests(user)">
+      <div ng-repeat="request in vm.likedRequests">
         <div class="ui card">
           <div class="content">
             <div class="header"><a ui-sref="lecture_request({id: {{request.id}}})">{{request.title}}</a></div>
@@ -50,7 +50,6 @@
           </div>
         </div>
     </div>
-
   </div>
 </div>
 
