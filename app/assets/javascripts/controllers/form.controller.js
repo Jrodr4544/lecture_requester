@@ -2,26 +2,22 @@
 ( function() {
   'use strict';
   
-  function FormController($scope, $http){
+  function FormController($scope, LectureRequestsFactory, $http){
     
     debugger
     var vm = this;
 
     vm.create = function() {
       debugger
-      //  should send to lecture_requests#create
-      $http({
-        method: 'POST',
-        url: 'http://localhost:3000/lecture_requests',
-        data: $scope.lecture_request
-      });
-
+      return LectureRequestsFactory.createRequest($scope.lectureRequest);
+          
+      // state should go to the user's profile
       $state.go('home.home');
     }
 
   }
 
-  FormController.$inject = ['$scope', '$http']
+  FormController.$inject = ['$scope', 'LectureRequestsFactory','$http']
 
   angular
     .module('lecture_requester')  
