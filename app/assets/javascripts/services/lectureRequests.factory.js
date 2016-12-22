@@ -5,8 +5,9 @@
   function LectureRequestsFactory($rootScope,$http) {
     var vm = this;
     var LectureRequestsFactory = {};
-        LectureRequestsFactory.allRequests  = [];
-        LectureRequestsFactory.userRequests = [];
+        LectureRequestsFactory.allRequests    = [];
+        LectureRequestsFactory.userRequests   = [];
+
     // return LectureRequestsFactory; // not needed because the return below is doing it :-)
     
     return {
@@ -57,9 +58,19 @@ LectureRequestsFactory: LectureRequestsFactory,
 
     function likedRequests(user) {
       debugger
-      return $http.get('http://localhost:3000/users/'+user.id+'/hearts.json')
-                  // .then(handleResponse) if the one below doesn't work, revert back
-               .then(setLikedRequests)
+      var requests = [];
+      
+      LectureRequestsFactory.allRequests.filter(function(request){
+        // going through each request's user_likes to grab the user's liked requests
+        var likes = request.user_likes;
+
+        for (var i = 0; i < likes.length; i++) {
+          // debugger
+          if (likes[i].id == user.id) {requests.push(request)};
+        }
+      });
+
+      return requests;
     }
 
     function addComment(id, data) {
@@ -144,13 +155,17 @@ LectureRequestsFactory: LectureRequestsFactory,
     // This is a callback function that stores a response and sets it as the service's userRequests
     function setUserRequests(data) {
       debugger
-      var requests = data.data;
+      var requests = data.data.lecture_requests;
+      // This is resetting the userRequests
+      LectureRequestsFactory.userRequests = [];
       for (var i = 0; i < requests.length; i++) {
         requests[i]
-        debugger
+        // debugger
         // pushing the response data into userRequests
         LectureRequestsFactory.userRequests.push({id: requests[i].id, content: requests[i].content, title: requests[i].title, comments: requests[i].comments, user_likes: requests[i].user_likes})
       }
+
+      // return requests;
     }
 
     // This function can be called from a view to return the service's current userRequests but may no longer be needed
@@ -160,7 +175,7 @@ LectureRequestsFactory: LectureRequestsFactory,
 
     function setLikedRequests(data) {
       debugger
-      return vm.userRequests = data;
+      return vm.likedRequests = data;
     }
 
   }
