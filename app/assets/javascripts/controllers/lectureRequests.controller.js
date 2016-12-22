@@ -59,22 +59,12 @@
     // vm.addComment    = addComment;
 
 
-    // function getRequests() {
-    //   debugger
-    //   scope.LectureRequestsFactory.getRequests()
-    //           // .then(setRequests)
-    // }
-
-    // function userRequests() {
-    //   debugger
-    //   return LectureRequestsFactory.userRequests($scope.user)
-    //           .then(setUserRequests)
-    // }
-
-    // function getRequest() {
-    //   return LectureRequestsFactory.getRequest()
+    // function updateRequest(id, data) {
+    //   return LectureRequestsFactory.updateRequest(id, data)
     //           .then(/*callback function*/)
     // }
+
+
 
     // function createRequest() {
     //   debugger
@@ -84,39 +74,4 @@
     //           })
     // }
 
-    // function updateRequest(id, data) {
-    //   return LectureRequestsFactory.updateRequest(id, data)
-    //           .then(/*callback function*/)
-    // }
 
-    // function likedRequests() {
-    //   debugger
-    //   return LectureRequestsFactory.likedRequests($scope.user)
-    //           .then(setLikedRequests)
-    // }
-
-    // function addComment(id, data) {
-    //   debugger
-    //   return LectureRequestsFactory.addComment(id, data)
-    //           .then(console.log(response))
-    // }
-
-    // function setRequests(data) {
-    //   debugger
-    //   vm.allRequests = data;
-    // }
-
-    // function setUserRequests(data) {
-    //   debugger
-    //   return vm.requests = data.lecture_requests;
-    // }
-
-    // function setLikedRequests(data) {
-    //   debugger
-    //   return vm.hearts = data;
-    // }
-
-    // function heartRequest() {
-    //   debugger
-    //   $scope.user
-    // }
