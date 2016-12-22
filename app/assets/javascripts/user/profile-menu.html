@@ -26,9 +26,9 @@
       <div ng-include="'lecture_requests/new.html'"></div>
     </div>
 
-    <div class="ui attached tab segment" data-tab="third" ng-controller="LectureRequestsController as vm" ng-init="vm.userRequests()" >
-      <div ng-repeat="request in vm.requests">
-        <div class="ui card">
+<!-- This is not showing the correct user's requests -->
+    <div class="ui attached tab segment" data-tab="third" ng-controller="UserProfileController as ctrl" ng-init="service.getUserRequests(user)" >
+        <div ng-repeat="request in ctrl.requests" class="ui card">
           <div class="content">
             <div class="header"><a ui-sref="lecture_request({id: {{request.id}}})">{{request.title}}</a></div>
             <div class="description">
@@ -36,19 +36,17 @@
             </div>
           </div>
         </div>
-      </div>
     </div>
 
-    <div class="ui attached tab segment" data-tab="fourth" ng-controller="UserProfileController as vm" ng-init="service.likedRequests(user)">
-      <div ng-repeat="request in vm.likedRequests">
-        <div class="ui card">
-          <div class="content">
-            <div class="header"><a ui-sref="lecture_request({id: {{request.id}}})">{{request.title}}</a></div>
+<!-- Need to make sure this finally works -->
+      <div class="ui attached tab segment" data-tab="fourth" ng-controller="UserProfileController as vm" ng-init="setLikes()">
+          <div ng-repeat="request in vm.likes" class="ui card">
+            <div class="content">
+              <div class="header"><a ui-sref="lecture_request({id: {{request.id}}})">{{request.title}}</a></div>
             <div class="description">
               {{request.content}}
-            </div>
           </div>
-        </div>
+      </div>
     </div>
   </div>
 </div>
