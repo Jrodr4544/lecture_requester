@@ -4,30 +4,38 @@
   
   function UserProfileController($scope, Auth, $state, LectureRequestsFactory, $rootScope){
     debugger
-
     var vm = this;
-
     // vm.heartRequest = heartRequest;
-    vm.likedRequests = LectureRequestsFactory.LectureRequestsFactory.userRequests;
 
     var scope = $scope;
     
-    scope.service = LectureRequestsFactory;
-    scope.user    = Auth._currentUser
+    scope.service  = LectureRequestsFactory;
+    scope.user     = Auth._currentUser;
+    debugger
+    vm.likes       = [];
+    vm.requests    = LectureRequestsFactory.LectureRequestsFactory.userRequests;
 
-
+    scope.setLikes = function() {
+      debugger
+      vm.likes = scope.service.likedRequests(scope.user);
+      debugger
+      var i = "string";
+    }
+    
+    // make comments reflect this
     scope.heartRequest = function($event) {
       debugger
-      alert('submitting heart');
-      debugger 
-      // missing a post to the add heart action in lecture requests controller
-      // then need to update the ng-model for the hearts
+      // alert('submitting heart');
       var data = {
         lecture_request_id: $scope.request.id
                    // user_id: Auth._currentUser.id
       }
       LectureRequestsFactory.heartRequest(data);
     }
+
+    // scope.setRequests = function() {
+
+    // }
 
   }
 
