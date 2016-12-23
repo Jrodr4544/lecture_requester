@@ -7,10 +7,21 @@ class ApplicationController < ActionController::Base
     render 'application/index'
   end
 
+  def images
+    # binding.pry
+    # using Dir.entries to get the root path of rails server's assets images based on the .jpg extension 
+    @images = Dir.entries(File.join(Rails.root,'app','assets','images')).select {|file| File.fnmatch('*.jpg',file)}
+    # binding.pry
+    render json: @images
+  end
+
   protected
 
   def configure_permitted_parameters
-    added_attrs = [:username, :email, :password, :password_confirmation, :remember_me]
+    # binding.pry
+    # setting avatar as the avatar's nested form attribute for image. Avatar is not an object, it is a string that references an image file
+    params[:user][:avatar] = params[:user][:avatar][:image]
+    added_attrs = [:username, :email, :password, :avatar, :password_confirmation, :remember_me]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
