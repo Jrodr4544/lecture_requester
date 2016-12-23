@@ -13,45 +13,14 @@
           Sign Up
         </div>
       </h2>
-      <form class="ui large form" ng-submit="register()" name="form">
-        <div class="ui stacked segment">
+      <!-- <button ng-controller="LectureRequestsController" ng-click="testing()"></button> -->
+      <form class="ui large form" ng-submit="register()" name="form" ng-init="getAvatars()">
+        <div class="ui grid">
           <p>Select a Profile image</p>
-            <img width="100" height="100" src="/assets/ade.jpg">
-            <input class="checkbox" type="checkbox" name="ade">
-
-            <img width="100" height="100" src="/assets/chris.jpg">
-            <input class="checkbox" type="checkbox" name="chris">
-
-            <img width="100" height="100" src="/assets/christian.jpg">
-            <input class="checkbox" type="checkbox" name="christian">
-
-            <img width="100" height="100" src="/assets/daniel.jpg">
-            <input class="checkbox" type="checkbox" name="daniel">
-
-            <img width="100" height="100" src="/assets/elliot.jpg">
-            <input class="checkbox" type="checkbox" name="elliot">
-
-            <img width="100" height="100" src="/assets/helen.jpg">
-            <input class="checkbox" type="checkbox" name="helen">
-
-            <img width="100" height="100" src="/assets/jenny.jpg">
-            <input class="checkbox" type="checkbox" name="jenny">
-
-            <img width="100" height="100" src="/assets/joe.jpg">
-            <input class="checkbox" type="checkbox" name="joe">
-
-            <img width="100" height="100" src="/assets/justen.jpg">
-            <input class="checkbox" type="checkbox" name="justen">
-
-            <img width="100" height="100" src="/assets/laura.jpg">
-            <input class="checkbox" type="checkbox" name="laura">
-
-            <img width="100" height="100" src="/assets/matt.jpg">
-            <input class="checkbox" type="checkbox" name="matt">
-
-            <img width="100" height="100" src="/assets/tom.jpg">
-            <input class="checkbox" type="checkbox" name="tom">
-
+              <div class="four wide column" ng-repeat="avatar in vm.avatars">
+                <img width="100" height="100" src="/assets/{{avatar.name}}">
+                <label><input class="checkbox" name="{{avatar.name}}" type="checkbox" ng-model="user.avatar['image']" ng-true-value="'{{avatar.name}}'" ng-false-value="''">{{avatar.name}}</label>
+              </div>
         </div>
         <div class="ui stacked segment">
           <div class="field">
