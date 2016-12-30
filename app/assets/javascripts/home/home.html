@@ -9,9 +9,9 @@
   </div>
 
 <br>
-  <div class="ui three stackable cards" ng-repeat="request in vm.requests | filter: search">
+  <div class="ui stackable" ng-repeat="request in vm.requests | filter: search">
     <div></div>
-    <div class="ui card">
+    <div class="ui fluid card">
       <div class="content">
         <div class="header"><a ui-sref="lecture_request({id: {{request.id}}})">{{request.title}}</a></div>
         <div class="description">
@@ -30,7 +30,7 @@
           <p>{{comment.commenter_username}} said: {{comment.text}}</p>
         </div>
       </div>
-      <!-- need to fix the heart button. need to also send the id of the request where comment is being submitted -->
+
       <div class="extra content">
         <div class="ui large transparent left icon input">
           <i class="comment outline icon"></i>
@@ -39,7 +39,6 @@
       </div>
     </div>
     <!-- need to 
-        - add a function to button that hearts a request
         - add the click which will show all the comments and user details
           - even a small user's semantic ui card (find from semantic ui)
           - it will also have option to add a comment
