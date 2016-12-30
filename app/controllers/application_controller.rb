@@ -19,12 +19,11 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     # binding.pry
-    # setting avatar as the avatar's nested form attribute for image. Avatar is not an object, it is a string that references an image file
-    if params[:user][:avatar]
-      params[:user][:avatar] = params[:user][:avatar][:image]
-    end
-    
-    added_attrs = [:username, :email, :password, :avatar, :password_confirmation, :remember_me]
+    # setting avatar as the avatar's nested form attribute for image. Avatar is not an object, it is a string that references an image
+    (params[:user] != nil && params[:user][:avatar] != nil) ? params[:user][:avatar] = params[:user][:avatar][:image] : nil
+
+    added_attrs = [:user, :username, :email, :password, :avatar, :password_confirmation, :remember_me]
+
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
