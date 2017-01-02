@@ -21,21 +21,15 @@
       debugger
       var i = "string";
     }
-    
+
     // make comments reflect this
     scope.heartRequest = function($event) {
       debugger
-      // alert('submitting heart');
       var data = {
         lecture_request_id: $scope.request.id
-                   // user_id: Auth._currentUser.id
       }
       LectureRequestsFactory.heartRequest(data);
     }
-
-    // scope.setRequests = function() {
-
-    // }
 
   }
 
