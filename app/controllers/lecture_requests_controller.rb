@@ -1,6 +1,6 @@
 class LectureRequestsController < ApplicationController
   # before_action :authenticate_user, only: [:create, :destroy, :edit]
-  before_action :set_lecture_request, only: [:show, :comment_lecture_request, :heart_lecture_request]
+  before_action :set_lecture_request, only: [:show, :comment_lecture_request, :heart_lecture_request, :destroy]
 
   def index
     @lectureRequests = LectureRequest.all
@@ -82,13 +82,18 @@ class LectureRequestsController < ApplicationController
   end
 
   def destroy
-    if @lectureRequest.user == current_user.id
+    binding.pry
+    if @lectureRequest.user.id == current_user.id
+      binding.pry
       Comment.where("lecture_request_id = ?", @lectureRequest.id).each { |comment| comment.destroy }
       Heart.where("lecture_request_id = ?", @lectureRequest.id).each { |heart| heart.destroy }
       if @lectureRequest.destroy
+        binding.pry
         flash.now[:notice] = 'You\'ve deleted this Lecture Request.'
+        # redirect_to user_path(current_user), notice: 'You\'ve deleted this Lecture Request.'
+        render json: current_user, status: 201
       else
-        render json: @lectureRequest, status: 404
+        render status: 404
         # try - render json: {errors: @lectureRequest.errors.full_messages}, status: unprocessable_entity
       end
     end
