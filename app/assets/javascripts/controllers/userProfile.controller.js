@@ -31,6 +31,11 @@
       LectureRequestsFactory.heartRequest(data);
     }
 
+    scope.remove = function(request_id) {
+      debugger
+      scope.service.removeRequest(request_id);
+    }
+
   }
 
   UserProfileController.$inject = ['$scope', 'Auth', '$state', 'LectureRequestsFactory', '$rootScope']
