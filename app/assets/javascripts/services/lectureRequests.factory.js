@@ -19,7 +19,7 @@
        // userRequests: vm.userRequests,
 LectureRequestsFactory: LectureRequestsFactory,
        getUserRequests: getUserRequests,
-    // allUserRequests: allUserRequests,
+         removeRequest: removeRequest,
            getRequests: getRequests,
          likedRequests: likedRequests,
             addComment: addComment, 
@@ -86,7 +86,6 @@ LectureRequestsFactory: LectureRequestsFactory,
           comment: data
         }
       }
-
       return $http(req)
                 .then(refresh)
                 .catch(handleError)
@@ -110,10 +109,8 @@ LectureRequestsFactory: LectureRequestsFactory,
           lecture_request: request
         }
       }
-
       return $http(req)
                 .catch(handleError)
-
     }
 
     function updateRequest() {
@@ -136,7 +133,7 @@ LectureRequestsFactory: LectureRequestsFactory,
 
     // This is a callback function that stores a response and sets it as the service's allRequests
     function setRequests(data) {
-      debugger
+      // debugger
       var requests = data.data;
       if (requests.length != LectureRequestsFactory.allRequests.length) {
         for (var i = 0; i < requests.length; i++) {
@@ -145,7 +142,7 @@ LectureRequestsFactory: LectureRequestsFactory,
           // pushing the response data into allRequests
           LectureRequestsFactory.allRequests.push({id: requests[i].id, content: requests[i].content, title: requests[i].title, comments: requests[i].comments, user_likes: requests[i].user_likes})
         }
-        debugger
+        // debugger
         // broadcasting the new requests when any changes get made
         $rootScope.$broadcast('requests:updated', LectureRequestsFactory.allRequests);
       }
@@ -164,18 +161,21 @@ LectureRequestsFactory: LectureRequestsFactory,
         // pushing the response data into userRequests
         LectureRequestsFactory.userRequests.push({id: requests[i].id, content: requests[i].content, title: requests[i].title, comments: requests[i].comments, user_likes: requests[i].user_likes})
       }
-
       // return requests;
     }
-
-    // This function can be called from a view to return the service's current userRequests but may no longer be needed
-    // function allUserRequests() {
-    //   return vm.userRequests;
-    // }
 
     function setLikedRequests(data) {
       debugger
       return vm.likedRequests = data;
+    }
+
+    function removeRequest(data) {
+      debugger
+      $http.delete('/lecture_requests/'+data).then(function(response){
+        debugger
+        console.log(response.data);
+        getUserRequests(response.data);
+      });
     }
 
   }
