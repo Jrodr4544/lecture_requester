@@ -60,8 +60,7 @@ class LectureRequestsController < ApplicationController
 
   def comment_lecture_request
     # binding.pry
-    # @lectureRequest.comments.build(lecture_request_params[:comments])
-    @lectureRequest.comments.create(text: params[:comment][:text],user_id: current_user.id,lecture_request_id: params[:lecture_request][:id])
+    @lectureRequest.comments.create(text: params[:comment],user_id: current_user.id,lecture_request_id: params[:lecture_request][:id])
     if @lectureRequest.save
       flash.now[:notice] = 'Thank you! Your comment was posted to this Lecture Request.'
       render json: @lectureRequest, status: 201
@@ -82,15 +81,14 @@ class LectureRequestsController < ApplicationController
   end
 
   def destroy
-    binding.pry
+    # binding.pry
     if @lectureRequest.user.id == current_user.id
-      binding.pry
+      # binding.pry
       Comment.where("lecture_request_id = ?", @lectureRequest.id).each { |comment| comment.destroy }
       Heart.where("lecture_request_id = ?", @lectureRequest.id).each { |heart| heart.destroy }
       if @lectureRequest.destroy
-        binding.pry
+        # binding.pry
         flash.now[:notice] = 'You\'ve deleted this Lecture Request.'
-        # redirect_to user_path(current_user), notice: 'You\'ve deleted this Lecture Request.'
         render json: current_user, status: 201
       else
         render status: 404
