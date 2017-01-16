@@ -29,10 +29,10 @@
     //   }
     // });
 
-    $scope.submitComment = function($event) {
+    scope.submitComment = function($event) {
       debugger
       alert('submitting comment');
-      scope.service.addComment(this.request.id, $scope.lectureRequest.comment);
+      scope.service.addComment(this.request.id, $event.target.value);
       debugger
       var i = $event;
       // need to push this comment to the scope
