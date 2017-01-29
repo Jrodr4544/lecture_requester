@@ -1,15 +1,28 @@
 <br>
 
 <div ng-controller="LectureRequestsController as vm" ng-init="service.getRequests()">
-  <div class="ui search">
+  <div style="background-color:#4183c4;" class="ui search">
+    <br>
     <div class="ui fluid icon input">
       <input ng-model="search" class="prompt" type="text" placeholder="Search Lecture Requests...">
       <i class="search icon"></i>
     </div>
-      <input type="checkbox" ng-model="search" ng-true-value="'angularjs'" ng-false-value="">Angularjs</input>
-      <input type="checkbox" ng-model="search" ng-true-value="'javascript'" ng-false-value="">Javascript</input>
-      <input type="checkbox" ng-model="search" ng-true-value="'rails'" ng-false-value="">Rails</input>
-      <input type="checkbox" ng-model="search" ng-true-value="'ruby'" ng-false-value="">Ruby</input>
+
+    <div class="ui radio checkbox">
+      <input type="checkbox" ng-model="search" ng-true-value="'angularjs'" ng-false-value=""><label>Angularjs</label></input>
+    </div>
+
+    <div class="ui radio checkbox">
+      <input type="checkbox" ng-model="search" ng-true-value="'javascript'" ng-false-value=""><label>Javascript</label></input>
+    </div>
+
+    <div class="ui radio checkbox">
+      <input type="checkbox" ng-model="search" ng-true-value="'rails'" ng-false-value=""><label>Rails</label></input>
+    </div>
+
+    <div class="ui radio checkbox">
+      <input type="checkbox" ng-model="search" ng-true-value="'ruby'" ng-false-value=""><label>Ruby</label></input>
+    </div>
   </div>
 
 <br>
