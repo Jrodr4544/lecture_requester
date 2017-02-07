@@ -4,6 +4,9 @@ gem 'less-rails-semantic_ui'
 gem 'autoprefixer-rails'
 gem 'therubyracer'
 
+# Used to avoid 'Can't verify CSRF token authenticity.' error
+gem 'angular_rails_csrf'
+
 gem "bower-rails", "~> 0.11.0"
 
 gem 'angular-rails-templates'
