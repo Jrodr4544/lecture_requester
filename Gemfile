@@ -4,8 +4,8 @@ gem 'less-rails-semantic_ui'
 gem 'autoprefixer-rails'
 gem 'therubyracer'
 
-gem 'sprockets', "~> 3.7.0"
-gem "sprockets-rails", "~> 3.2.0"
+gem 'sprockets', "~> 3.6.3"
+# gem "sprockets-rails", "~> 3.2.0"
 # Used to avoid 'Can't verify CSRF token authenticity.' error
 gem 'angular_rails_csrf'
 
