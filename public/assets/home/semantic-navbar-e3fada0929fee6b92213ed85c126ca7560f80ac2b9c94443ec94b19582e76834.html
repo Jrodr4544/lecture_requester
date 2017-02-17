@@ -1,0 +1,16 @@
+<!-- <div class="ui inverted segment">
+  <div class="ui inverted secondary pointing menu">
+    <a class="active item" href="#" ui-sref="home">Home</a>
+    <a class="item" href="#" ui-sref="home.about">About</a>
+  </div>
+</div> -->
+
+<div>
+  <ul class="ui inverted menu" ng-controller="AuthController">
+  <li class="active item" role="presentation" ui-sref-active="active"><a ui-sref="home.home">Home</a></li>
+  <li class="item" ng-show="isAuthenticated" role="presentation" ui-sref-active="active"><a href="#" ui-sref="home.user">Profile</a></li>
+  <li class="item" role="presentation" ui-sref-active="active"><a href="#" ui-sref="home.about">About</a></li>
+  <li class="item right aligned" role="presentation" ui-sref-active="active"><a href="#" ui-sref="home.login" ng-hide="isAuthenticated">Login</a></li>
+  <li class="item right aligned" role="presentation" ui-sref-active="active"><a href="#" ng-show="isAuthenticated" ng-click="logout()">Logout</a></li>
+  </ul>
+</div>

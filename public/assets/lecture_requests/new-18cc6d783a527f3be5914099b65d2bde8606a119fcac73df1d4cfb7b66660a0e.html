@@ -1,0 +1,20 @@
+<form class="ui large form" ng-controller="FormController as vm" ng-submit="vm.create()">
+<p>*Please include a short summary describing what you are having trouble with*</p>
+  <div class="ui stacked segment">
+    <div class="field">
+      <div class="ui left icon input">
+        <i class="sticky note outline icon"></i>
+        <input type="text" name="title" placeholder="Lecture Request" ng-model="lectureRequest.title">
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui left icon input">
+        <i class="write icon"></i>
+        <input type="content" name="content" placeholder="Summary" ng-model="lectureRequest.content">
+      </div>
+    </div>
+      <input class="ui fluid large teal submit button" type="submit" id="submit" value="Submit Request" />
+  </div>
+
+  <div class="ui error message"></div>
+</form>
