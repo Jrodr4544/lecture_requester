@@ -11,7 +11,10 @@ module LectureRequester
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-  
+    
+    # For heroku configuration ability to access assets 
+    config.serve_static_assets = true
+
     # Allowing Devise to respond to JSON
 
     config.to_prepare do
