@@ -4,10 +4,10 @@
   
   angular
     .module('lecture_requester')  
-    .config(function(function(assetPathProvider) {
-    assetPathProvider.setAssets(
-      <%= File.read(Dir.glob('public/assets/manifest-*.json').last).html_safe rescue "{}" %>
-    )
-  })
+    .config(function(assetPathProvider) {
+      assetPathProvider.setAssets(
+        <%= File.read(Dir.glob('public/assets/manifest-*.json').last).html_safe rescue "{}" %>
+      )
+    })
 
 }());
