@@ -7,21 +7,6 @@
     var vm = this;
     vm.current_user = null;
 
-    // this.user = function() {
-    //   Auth.currentUser().then(function(user) {
-    //     // gets current user
-    //     // debugger
-    //     return user;
-    //     vm.current_user = user;
-    //     $scope.isAuthenticated = true;
-    //     // UserService.setUser(user);
-    //   }, function(error) {
-    //     // Log on console to check out what the error is.
-    //     console.log(error);
-    //     alert('fail');
-    //   });
-    // }
-
       $scope.$on('devise:new-session', function(event, currentUser) {
         $scope.isAuthenticated = true;
       });
