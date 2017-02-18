@@ -2,11 +2,6 @@
 ( function() {
   'use strict';
   
-  // function LectureRequestsController($scope){
-    // $scope.request = "I am making a request to learn more about rails";
-  // }
-
   angular
-    .module('lecture_requester', ['ui.router','templates','Devise'])  
-    // .controller('LectureRequestsController', LectureRequestsController)
+    .module('lecture_requester', ['ui.router','templates','Devise', 'asset-path'])  
 }());
