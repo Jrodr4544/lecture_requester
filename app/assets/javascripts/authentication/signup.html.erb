@@ -22,7 +22,7 @@
           <!-- <div></div> -->
               <div class="four wide column" ng-repeat="avatar in vm.avatars">
 
-                <img width="100" height="100" src="<%= asset_path('{{avatar.name}}') %>" >
+                <img width="100" height="100" src="{{ avatar.name | assetPath }}" >
                 <label><input class="checkbox" name="{{avatar.name}}" type="checkbox" ng-model="user.avatar['image']" ng-true-value="'{{avatar.name}}'" ng-false-value="''">{{avatar.name}}</label>
               </div>
         </div>
