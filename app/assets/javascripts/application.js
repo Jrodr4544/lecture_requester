@@ -14,6 +14,7 @@
 //= require angular
 //= require angular-ui-router
 //= require angular-rails-templates
+//= require angular-asset-path
 //= require angular-devise
 //= require semantic_ui/semantic_ui
 //= require_tree .
