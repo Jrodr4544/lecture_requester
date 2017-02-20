@@ -5,7 +5,6 @@
   function SessionController(Auth,$scope,$location) {
     debugger
     var vm = this;
-    vm.current_user = null;
 
       $scope.$on('devise:new-session', function(event, currentUser) {
         $scope.isAuthenticated = true;
