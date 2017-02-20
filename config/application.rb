@@ -21,5 +21,11 @@ module LectureRequester
       DeviseController.respond_to :html, :json
     end
 
+    # Setting up headers to avoid CORS issues
+    config.action_dispatch.default_headers = {
+      'Access-Control-Allow-Origin' => '*',
+      'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
+    }
+    
   end
 end
