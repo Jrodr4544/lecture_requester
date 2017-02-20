@@ -24,7 +24,7 @@
         for (var i = 0; i < avatarFiles.length; i++) {
           avatarFiles[i]
           // pushing the avatarFiles data into avatars and grabbing only the name of the avatar
-          vm.avatars.push({name: avatarFiles[i].split('-')[0]})
+          vm.avatars.push({name: avatarFiles[i].split(/[\s-.]/)[0]+'.'+avatarFiles[i].split(/[\s-.]/)[2] })
         }
 
       });      
