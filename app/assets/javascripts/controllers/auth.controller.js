@@ -23,8 +23,8 @@
         var avatarFiles = response.data;
         for (var i = 0; i < avatarFiles.length; i++) {
           avatarFiles[i]
-          // pushing the avatarFiles data into avatars
-          vm.avatars.push({name: avatarFiles[i]})
+          // pushing the avatarFiles data into avatars and grabbing only the name of the avatar
+          vm.avatars.push({name: avatarFiles[i].split('-')[0]})
         }
 
       });      
