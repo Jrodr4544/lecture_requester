@@ -34,7 +34,7 @@
 
 
     $scope.signIn = function() {
-      debugger
+      // debugger
       Auth.login($scope.user, config).then(function(user) {
         debugger
         $scope.user = user
@@ -46,9 +46,7 @@
     }  
     
     $scope.register = function() {
-      debugger
-      // concat .jpg because it is not displayed in page to make view user friendly 
-      // $scope.user.avatar.image = $scope.user.avatar.image.concat('.jpg');
+      // debugger
       Auth.register($scope.user, config).then(function(user) {
         // tie user to rootscope
         debugger
