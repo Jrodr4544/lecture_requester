@@ -48,7 +48,7 @@
     $scope.register = function() {
       debugger
       // concat .jpg because it is not displayed in page to make view user friendly 
-      $scope.user.avatar.image = $scope.user.avatar.image.concat('.jpg');
+      // $scope.user.avatar.image = $scope.user.avatar.image.concat('.jpg');
       Auth.register($scope.user, config).then(function(user) {
         // tie user to rootscope
         debugger
