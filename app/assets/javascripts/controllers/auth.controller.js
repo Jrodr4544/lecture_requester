@@ -11,8 +11,9 @@
       }
     };
     var vm = this;
-    vm.avatars = []
-
+    vm.avatars     = []
+    vm.avatarFiles = []
+    
     $scope.getAvatars = function() {
       // setting to empty array in case values already in here
       vm.avatars = [];
@@ -20,11 +21,12 @@
       $http.get('avatars').then(function(response) { 
         console.log(response); 
         debugger
-        var avatarFiles = response.data;
-        for (var i = 0; i < avatarFiles.length; i++) {
-          avatarFiles[i]
+        vm.avatarFiles = response.data;
+        for (var i = 0; i < vm.avatarFiles.length; i++) {
+          vm.avatarFiles[i]
           // pushing the avatarFiles data into avatars and grabbing only the name of the avatar
-          vm.avatars.push({name: avatarFiles[i].split(/[\s-.]/)[0]+'.'+avatarFiles[i].split(/[\s-.]/)[2] })
+          vm.avatars.push({name: vm.avatarFiles[i].split('-')[0]})
+          // vm.avatars.push({name: avatarFiles[i].split(/[\s-.]/)[0]+'.'+avatarFiles[i].split(/[\s-.]/)[2] })
         }
 
       });      
