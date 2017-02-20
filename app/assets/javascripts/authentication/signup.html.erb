@@ -23,7 +23,7 @@
               <div class="four wide column" ng-repeat="avatar in vm.avatars">
 
                 <img width="100" height="100" src="{{ vm.avatarFiles[$index] | assetPath }}" >
-                <label><input class="checkbox" name="{{avatar.name}}" type="checkbox" ng-model="user.avatar['image']" ng-true-value="'{{avatar.name}}'" ng-false-value="''">{{avatar.name}}</label>
+                <label><input class="checkbox" name="{{avatar.name}}" type="checkbox" ng-model="user.avatar['image']" ng-true-value="'{{vm.avatarFiles[$index]}}'" ng-false-value="''">{{avatar.name}}</label>
               </div>
         </div>
         <div class="ui stacked segment">
