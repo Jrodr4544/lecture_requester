@@ -4,6 +4,9 @@ gem 'less-rails-semantic_ui'
 gem 'autoprefixer-rails'
 gem 'therubyracer'
 
+# cors issue with access control allow origin
+gem 'rack-cors'
+
 gem 'sprockets', "~> 3.6.3"
 # gem "sprockets-rails", "~> 3.2.0"
 # Used to avoid 'Can't verify CSRF token authenticity.' error
