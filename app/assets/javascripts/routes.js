@@ -7,7 +7,8 @@
     .config(function( $stateProvider, $urlRouterProvider, $httpProvider) {
         
         $httpProvider.defaults.withCredentials = true;
-
+        $httpProvider.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+        
         $stateProvider
             .state('home', {
               url: '/',
