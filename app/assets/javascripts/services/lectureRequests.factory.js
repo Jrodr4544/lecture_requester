@@ -33,14 +33,14 @@ LectureRequestsFactory: LectureRequestsFactory,
       // no ssl
       $http.defaults.headers.common['Access-Control-Allow-Origin']  = '*';
       $http.defaults.headers.common['Accept'] = '*/*';
-      $http.get('/lecture_requests.json')
+      $http.get('http://localhost:3000/lecture_requests.json')
                   .then(setRequests);
     }
 
     // need to rename any views that use the old userRequests to getUserRequests
     function getUserRequests(user) {
       debugger
-      return $http.get('/users/'+user.id+'.json')
+      return $http.get('http://localhost:3000/users/'+user.id+'.json')
                   .then(setUserRequests)
     }
 
@@ -79,7 +79,7 @@ LectureRequestsFactory: LectureRequestsFactory,
       debugger
       var req = {
         method: 'POST',
-        url: '/lecture_requests/'+id+'/comment',
+        url: 'http://localhost:3000/lecture_requests/'+id+'/comment',
         headers: {
           'Content-Type': 'application/json'
         },
@@ -103,7 +103,7 @@ LectureRequestsFactory: LectureRequestsFactory,
       debugger
       var req = {
         method: 'POST',
-        url: '/lecture_requests',
+        url: 'http://localhost:3000/lecture_requests',
         headers: {
           'Content-Type': 'application/json'
         },
