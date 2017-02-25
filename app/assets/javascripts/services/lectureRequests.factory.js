@@ -40,7 +40,7 @@ LectureRequestsFactory: LectureRequestsFactory,
     // need to rename any views that use the old userRequests to getUserRequests
     function getUserRequests(user) {
       debugger
-      return $http.get('http://localhost:3000/users/'+user.id+'.json')
+      return $http.get('/users/'+user.id+'.json')
                   .then(setUserRequests)
     }
 
@@ -79,7 +79,7 @@ LectureRequestsFactory: LectureRequestsFactory,
       debugger
       var req = {
         method: 'POST',
-        url: 'http://localhost:3000/lecture_requests/'+id+'/comment',
+        url: '/lecture_requests/'+id+'/comment',
         headers: {
           'Content-Type': 'application/json'
         },
@@ -103,7 +103,7 @@ LectureRequestsFactory: LectureRequestsFactory,
       debugger
       var req = {
         method: 'POST',
-        url: 'http://localhost:3000/lecture_requests',
+        url: '/lecture_requests',
         headers: {
           'Content-Type': 'application/json'
         },
