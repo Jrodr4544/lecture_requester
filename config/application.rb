@@ -15,11 +15,16 @@ module LectureRequester
     # For heroku configuration ability to access assets 
     config.serve_static_assets = true
 
+    config.action_dispatch.default_headers.merge!({
+      'Access-Control-Allow-Origin' => '*',
+      'Access-Control-Request-Method' => '*'
+    })
+    
     # Allowing Devise to respond to JSON
 
     config.to_prepare do
       DeviseController.respond_to :html, :json
     end
-    
+
   end
 end
