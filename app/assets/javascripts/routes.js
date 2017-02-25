@@ -8,8 +8,8 @@
         
         $httpProvider.defaults.withCredentials = true;
         $httpProvider.defaults.headers.common['Access-Control-Allow-Origin']  = '*';
-        $httpProvider.defaults.headers.common['Access-Control-Allow-Headers'] = 'Content-Type';
-        $httpProvider.defaults.headers.common['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS';
+        $httpProvider.defaults.headers.common['Access-Control-Allow-Headers'] = '*';
+        $httpProvider.defaults.headers.common['Access-Control-Allow-Methods'] = '*';
 
         $stateProvider
             .state('home', {
