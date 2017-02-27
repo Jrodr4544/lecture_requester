@@ -11,12 +11,6 @@
     // return LectureRequestsFactory; // not needed because the return below is doing it :-)
     
     return {
-              // users: vm.users,
-        // allRequests: vm.allRequests,
-           // requests: requests,
-            // request: vm.request,
-             // hearts: vm.hearts,
-       // userRequests: vm.userRequests,
 LectureRequestsFactory: LectureRequestsFactory,
        getUserRequests: getUserRequests,
          removeRequest: removeRequest,
