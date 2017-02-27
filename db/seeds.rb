@@ -1,4 +1,4 @@
-User.create([
+User.new([
   {email: "jrod@test.com", encrypted_password: "$2a$11$UPNgQZsMw0zti4F9KE1SsOLyK7GNu2qCFmXzsDnr35l0d5yx/bIQG", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, username: "jrodr4544", bio: nil, avatar: nil},
   {email: "user@example.com", encrypted_password: "$2a$11$pEDQbR6lioPt.5rlz3eIj.zGdcN7Rk4yTkL5ojT1FcEEUglDvu.v6", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, username: "user_example", bio: nil, avatar: nil},
   {email: "hades@users.com", encrypted_password: "$2a$11$DDqobvkWySTXxeqDUGzmgO/99dwNJ.4tRVxhpya6w0kMlH4Ts5ofu", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2016-12-22 19:09:45", last_sign_in_at: "2016-12-22 19:09:45", current_sign_in_ip: "::1", last_sign_in_ip: "::1", username: "hadeskid", bio: nil, avatar: nil},
@@ -45,7 +45,7 @@ User.create([
   {email: "l@l.com", encrypted_password: "$2a$11$v.5aK5lxK5KziiNR.IJ8vOw3uullh/Pbwg6zV8G7O6xs/svIIhJUG", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 3, current_sign_in_at: "2016-12-30 15:59:13", last_sign_in_at: "2016-12-30 15:16:47", current_sign_in_ip: "::1", last_sign_in_ip: "::1", username: "l", bio: nil, avatar: "jenny.jpg"},
   {email: "u@u.com", encrypted_password: "$2a$11$z6MgzL0IU51ukYMV3jrWJ.EFEEBjzsy/DdNeSPOoLDNKnl/gFmWBO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 16, current_sign_in_at: "2017-01-29 19:05:12", last_sign_in_at: "2017-01-29 18:59:44", current_sign_in_ip: "::1", last_sign_in_ip: "::1", username: "u", bio: nil, avatar: "justen.jpg"},
   {email: "matt@example.com", encrypted_password: "$2a$11$/bcSUYl2ZMfHkT4kVTutB.mH0wj6p4ERHgwWNtQrkJ0r2ZcYRvFgm", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 2, current_sign_in_at: "2017-02-20 20:01:05", last_sign_in_at: "2017-02-20 19:04:47", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", username: "matt-test", bio: nil, avatar: "matt-788b04df9d15d7fd6d1856733b5ae5879bfb3d34d0df15d8040ff88b8e9cdfb9.jpg"}
-])
+]).save(validate: false)
 LectureRequest.create!([
   {content: "This is just a test hahaha", title: "Having trouble understanding db relations?", user_id: 1},
   {content: "Having trouble with js.", title: "Help learning JS model objects?", user_id: 3},
