@@ -4,13 +4,7 @@
   
   angular
     .module('lecture_requester')  
-    .config(function( $stateProvider, $urlRouterProvider, $httpProvider) {
-        
-        $httpProvider.defaults.withCredentials = true;
-        $httpProvider.defaults.headers.common['Access-Control-Allow-Origin']  = '*';
-        $httpProvider.defaults.headers.common['Access-Control-Allow-Headers'] = '*';
-        $httpProvider.defaults.headers.common['Access-Control-Allow-Methods'] = '*';
-
+    .config(function( $stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('home', {
               url: '/',
