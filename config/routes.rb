@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resources :lecture_requests, only: [:create, :show, :update, :index, :destroy]
   
+  get '/auth/:provider/callback', to: 'omniauth#create'
+  
   get 'avatars', to: 'application#images'
   get 'users/:id/hearts', to: 'lecture_requests#liked_requests'
   post 'lecture_requests/:id/heart', to: 'lecture_requests#heart_lecture_request'
