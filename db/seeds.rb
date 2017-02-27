@@ -51,7 +51,6 @@ LectureRequest.create!([
   {content: "Having trouble with js.", title: "Help learning JS model objects?", user_id: 3},
   {content: "My params is not passing through because the object on require doesn't exist?", title: "Need help with rails strong params", user_id: 3},
   {content: "How do I filter an array of data based on the element's name?", title: "Need some direction with angularjs filters?", user_id: 6},
-  {content: "With a sample summary as a description for testing purposes.", title: "A sample request", user_id: 48}
 ])
 Comment.create!([
   {text: "comment with text", user_id: 1, lecture_request_id: 1},
@@ -65,10 +64,6 @@ Comment.create!([
   {text: "testing comments", user_id: 3, lecture_request_id: 3},
   {text: "testing again", user_id: 3, lecture_request_id: 3},
   {text: "testing yet again", user_id: 3, lecture_request_id: 3},
-  {text: "a comment goes here", user_id: 48, lecture_request_id: 4},
-  {text: "another comment used for testing", user_id: 48, lecture_request_id: 1},
-  {text: "posting yet another comment sire", user_id: 48, lecture_request_id: 2},
-  {text: "I just want to comment away", user_id: 48, lecture_request_id: 3}
 ])
 Heart.create!([
   {user_id: 1, lecture_request_id: 1},
@@ -77,6 +72,4 @@ Heart.create!([
   {user_id: 3, lecture_request_id: 2},
   {user_id: 6, lecture_request_id: 2},
   {user_id: 6, lecture_request_id: 1},
-  {user_id: 48, lecture_request_id: 4},
-  {user_id: 48, lecture_request_id: 1}
 ])
