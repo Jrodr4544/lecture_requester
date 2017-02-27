@@ -19,24 +19,10 @@
       vm.requests = data;
     });
 
-    // scope.$watch('LectureRequestsFactory.LectureRequestsFactory.allRequests', function (newVal, oldVal, scope) {
-    //   vm.requests = LectureRequestsFactory.LectureRequestsFactory.allRequests;
-    //   debugger
-    //   if(newVal != oldVal) { 
-    //     vm.requests = newVal;
-    //   } else {
-    //     vm.requests = LectureRequestsFactory.LectureRequestsFactory.allRequests;
-    //   }
-    // });
-
     scope.submitComment = function($event) {
       debugger
       alert('submitting comment');
       scope.service.addComment(this.request.id, $event.target.value);
-      debugger
-      var i = $event;
-      // need to push this comment to the scope
-      // $scope.items.push('wazzzup');
     }
 
   }
@@ -47,31 +33,4 @@
     .module('lecture_requester')  
     .controller('LectureRequestsController', LectureRequestsController)
 }());
-
-  // Below functions commented out because they can now be called straight from the DOM
-
-    // vm.getRequests   = getRequests;
-    // vm.userRequests  = userRequests;
-    // vm.getRequest    = getRequest;
-    // vm.createRequest = createRequest;
-    // vm.updateRequest = updateRequest;
-    // vm.likedRequests = likedRequests;
-    // vm.addComment    = addComment;
-
-
-    // function updateRequest(id, data) {
-    //   return LectureRequestsFactory.updateRequest(id, data)
-    //           .then(/*callback function*/)
-    // }
-
-
-
-    // function createRequest() {
-    //   debugger
-    //   return LectureRequestsFactory.createRequest($scope.lectureRequest)
-    //           .then(function(response){
-    //             console.log(response);
-    //           })
-    // }
-
 
