@@ -6,6 +6,10 @@ gem 'therubyracer'
 
 gem 'sprockets', "~> 3.6.3"
 # gem "sprockets-rails", "~> 3.2.0"
+
+# generates seed file from current db data
+gem 'seed_dump'
+
 # Used to avoid 'Can't verify CSRF token authenticity.' error
 gem 'angular_rails_csrf'
 
