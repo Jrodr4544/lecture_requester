@@ -7,10 +7,15 @@ gem 'therubyracer'
 gem 'sprockets', "~> 3.6.3"
 # gem "sprockets-rails", "~> 3.2.0"
 
+# omniauth gem
+gem 'omniauth'
+gem 'omniauth-github', github: 'intridea/omniauth-github'
+
 # generates seed file from current db data
 gem 'seed_dump'
 
 # Used to avoid 'Can't verify CSRF token authenticity.' error
+# this gem might not be necessary
 gem 'angular_rails_csrf'
 
 gem "bower-rails", "~> 0.11.0"
