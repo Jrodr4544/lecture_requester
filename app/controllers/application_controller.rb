@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   respond_to :json
   before_action :configure_permitted_parameters, if: :devise_controller?
-  skip_before_filter :verify_authenticity_token, :only => [:update]
+  after_filter :set_csrf_cookie
 
   def index
     render 'application/index'
@@ -15,8 +15,16 @@ class ApplicationController < ActionController::Base
     # binding.pry
     render json: @images
   end
+  
+  def set_csrf_cookie
+    cookies['XSRF-TOKEN'] = form_authenticity_token if protect_against_forgery?
+  end
 
   protected
+  
+  def verified_request?
+     super || valid_authenticity_token?(session, request.headers['X-XSRF-TOKEN'])
+   end
 
   def configure_permitted_parameters
     # binding.pry
