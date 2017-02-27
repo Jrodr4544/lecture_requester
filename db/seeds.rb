@@ -46,6 +46,13 @@ User.create!([
   {email: "u@u.com", password: "password", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 16, current_sign_in_at: "2017-01-29 19:05:12", last_sign_in_at: "2017-01-29 18:59:44", current_sign_in_ip: "::1", last_sign_in_ip: "::1", username: "u", bio: nil, avatar: "justen.jpg"},
   {email: "matt@example.com", password: "password", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 2, current_sign_in_at: "2017-02-20 20:01:05", last_sign_in_at: "2017-02-20 19:04:47", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", username: "matt-test", bio: nil, avatar: "matt-788b04df9d15d7fd6d1856733b5ae5879bfb3d34d0df15d8040ff88b8e9cdfb9.jpg"}
 ])
+LectureRequest.create!([
+  {content: "This is just a test hahaha", title: "Having trouble understanding db relations?", user_id: 1},
+  {content: "Having trouble with js.", title: "Help learning JS model objects?", user_id: 3},
+  {content: "My params is not passing through because the object on require doesn't exist?", title: "Need help with rails strong params", user_id: 3},
+  {content: "How do I filter an array of data based on the element's name?", title: "Need some direction with angularjs filters?", user_id: 6},
+  {content: "With a sample summary as a description for testing purposes.", title: "A sample request", user_id: 48}
+])
 Comment.create!([
   {text: "comment with text", user_id: 1, lecture_request_id: 1},
   {text: "[\"a comment for the request\"]", user_id: 3, lecture_request_id: 1},
@@ -72,11 +79,4 @@ Heart.create!([
   {user_id: 6, lecture_request_id: 1},
   {user_id: 48, lecture_request_id: 4},
   {user_id: 48, lecture_request_id: 1}
-])
-LectureRequest.create!([
-  {content: "This is just a test hahaha", title: "Having trouble understanding db relations?", user_id: 1},
-  {content: "Having trouble with js.", title: "Help learning JS model objects?", user_id: 3},
-  {content: "My params is not passing through because the object on require doesn't exist?", title: "Need help with rails strong params", user_id: 3},
-  {content: "How do I filter an array of data based on the element's name?", title: "Need some direction with angularjs filters?", user_id: 6},
-  {content: "With a sample summary as a description for testing purposes.", title: "A sample request", user_id: 48}
 ])
