@@ -16,10 +16,7 @@
     vm.requests    = LectureRequestsFactory.LectureRequestsFactory.userRequests;
 
     scope.setLikes = function() {
-      debugger
       vm.likes = scope.service.likedRequests(scope.user);
-      debugger
-      var i = "string";
     }
 
     // make comments reflect this
