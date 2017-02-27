@@ -19,7 +19,20 @@ module LectureRequester
       'Access-Control-Allow-Origin' => '*',
       'Access-Control-Request-Method' => '*'
     })
+
+    Rails.application.config.middleware.use OmniAuth::Builder do
+      # require 'openid/store/filesystem' 
+      provider :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET']
+      # provider :openid, store: OpenID::Store::Filesystem.new('/tmp')
+    end
     
+    # used for omniauth -->
+    # Instead of the initializer, you'll have to set the relevant options somewhere before your 
+    # middleware is built (like application.rb) and pass them to your preferred middleware
+    config.session_store :cookie_store, key: '_interslice_session'
+    config.middleware.use ActionDispatch::Cookies # Required for all session management
+    config.middleware.use ActionDispatch::Session::CookieStore, config.session_options
+
     # Allowing Devise to respond to JSON
 
     config.to_prepare do
