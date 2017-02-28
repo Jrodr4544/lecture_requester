@@ -14,10 +14,6 @@ gem 'omniauth-github', github: 'intridea/omniauth-github'
 # generates seed file from current db data
 gem 'seed_dump'
 
-# Used to avoid 'Can't verify CSRF token authenticity.' error
-# this gem might not be necessary
-gem 'angular_rails_csrf'
-
 gem "bower-rails", "~> 0.11.0"
 
 gem 'angular-rails-templates'
