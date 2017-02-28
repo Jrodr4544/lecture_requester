@@ -25,8 +25,8 @@ LectureRequestsFactory: LectureRequestsFactory,
     function getRequests() {
       debugger
       // no ssl
-      $http.defaults.headers.common['Access-Control-Allow-Origin']  = '*';
-      $http.defaults.headers.common['Accept'] = '*/*';
+      // $http.defaults.headers.common['Access-Control-Allow-Origin']  = '*';
+      // $http.defaults.headers.common['Accept'] = '*/*';
       $http.get('http://localhost:3000/lecture_requests.json')
                   .then(setRequests);
     }
