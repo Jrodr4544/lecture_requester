@@ -6,7 +6,7 @@ class LectureRequestsController < ApplicationController
     @lectureRequests = LectureRequest.all
     # binding.pry
     respond_to do |format|
-      format.html { render :index }
+      # format.html { render :index }
       format.json { render json: @lectureRequests, root: true}
     end
   end
@@ -104,7 +104,6 @@ class LectureRequestsController < ApplicationController
     end
 
     def lecture_request_params
-    binding.pry
       params.require(:lecture_request).permit(:id, :title, :content, :comment)
     end
 
