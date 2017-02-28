@@ -4,9 +4,8 @@ class LectureRequestsController < ApplicationController
 
   def index
     @lectureRequests = LectureRequest.all
-    # binding.pry
     respond_to do |format|
-      # format.html { render :index }
+      format.html { render :index }
       format.json { render json: @lectureRequests, root: true}
     end
   end
@@ -18,7 +17,6 @@ class LectureRequestsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @lectureRequest = current_user.lecture_requests.build(title: lecture_request_params[:title], content: lecture_request_params[:content])
     if @lectureRequest.save
       flash.now[:notice] = 'Thank you! Your Lecture Request was posted.'
@@ -41,15 +39,12 @@ class LectureRequestsController < ApplicationController
   end
 
   def heart_lecture_request
-    # binding.pry
     # if the user already liked the request don't add to the requests user_likes
     if @lectureRequest.user_likes.include?(current_user)
-      # binding.pry
       @lectureRequest.hearts.find_by(user_id: current_user.id).destroy
       flash.now[:notice] = 'You already liked this Lecture Request.'
       render json: @lectureRequest, status: 201
     else
-      # binding.pry
       @lectureRequest.user_likes << current_user
       @lectureRequest.save 
       flash.now[:notice] = 'Thanks! You liked this Lecture Request.'
@@ -59,7 +54,6 @@ class LectureRequestsController < ApplicationController
   end
 
   def comment_lecture_request
-    # binding.pry
     @lectureRequest.comments.create(text: params[:comment],user_id: current_user.id,lecture_request_id: params[:lecture_request][:id])
     if @lectureRequest.save
       flash.now[:notice] = 'Thank you! Your comment was posted to this Lecture Request.'
@@ -71,7 +65,6 @@ class LectureRequestsController < ApplicationController
   end
 
   def liked_requests
-    # binding.pry
     if current_user
       @likedRequests = current_user.hearts.map {|heart| heart.lecture_request}
       render json: @likedRequests, status: 201
@@ -81,13 +74,10 @@ class LectureRequestsController < ApplicationController
   end
 
   def destroy
-    # binding.pry
     if @lectureRequest.user.id == current_user.id
-      # binding.pry
       Comment.where("lecture_request_id = ?", @lectureRequest.id).each { |comment| comment.destroy }
       Heart.where("lecture_request_id = ?", @lectureRequest.id).each { |heart| heart.destroy }
       if @lectureRequest.destroy
-        # binding.pry
         flash.now[:notice] = 'You\'ve deleted this Lecture Request.'
         render json: current_user, status: 201
       else
