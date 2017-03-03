@@ -25,16 +25,16 @@ LectureRequestsFactory: LectureRequestsFactory,
     function getRequests() {
       debugger
       // no ssl
-      // $http.defaults.headers.common['Access-Control-Allow-Origin']  = '*';
-      // $http.defaults.headers.common['Accept'] = '*/*';
-      $http.get('http://localhost:3000/lecture_requests.json')
+      $http.defaults.headers.common['Access-Control-Allow-Origin']  = '*';
+      $http.defaults.headers.common['Accept'] = '*/*';
+      $http.get('/lecture_requests.json')
                   .then(setRequests);
     }
 
     // need to rename any views that use the old userRequests to getUserRequests
     function getUserRequests(user) {
       debugger
-      return $http.get('http://localhost:3000/users/'+user.id+'.json')
+      return $http.get('/users/'+user.id+'.json')
                   .then(setUserRequests)
     }
 
