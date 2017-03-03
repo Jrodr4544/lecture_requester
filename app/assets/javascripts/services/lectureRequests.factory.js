@@ -35,7 +35,7 @@ LectureRequestsFactory: LectureRequestsFactory,
     function getUserRequests(user) {
       debugger
       return $http.get('/users/'+user.id+'.json')
-                  .then(setUserRequests)
+                  .then(setUserRequests);
     }
 
     function heartRequest(data) {
