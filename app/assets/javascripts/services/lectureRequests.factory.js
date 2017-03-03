@@ -149,13 +149,16 @@ LectureRequestsFactory: LectureRequestsFactory,
       var requests = data.data.lecture_requests;
       // This is resetting the userRequests
       LectureRequestsFactory.userRequests = [];
+      if (requests.length != LectureRequestsFactory.userRequests.length) {
       for (var i = 0; i < requests.length; i++) {
-        requests[i]
-        // debugger
-        // pushing the response data into userRequests
-        LectureRequestsFactory.userRequests.push({id: requests[i].id, content: requests[i].content, title: requests[i].title, comments: requests[i].comments, user_likes: requests[i].user_likes})
+          requests[i]
+          debugger
+          // pushing the response data into userRequests
+          LectureRequestsFactory.userRequests.push({id: requests[i].id, content: requests[i].content, title: requests[i].title, comments: requests[i].comments, user_likes: requests[i].user_likes})
+        }
       }
-      // return requests;
+      // broadcasting the new requests when any changes get made
+      $rootScope.$broadcast('user_requests:updated', LectureRequestsFactory.userRequests);
     }
 
     function setLikedRequests(data) {
