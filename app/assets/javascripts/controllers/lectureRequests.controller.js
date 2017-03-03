@@ -2,7 +2,7 @@
 ( function() {
   'use strict';
   
-  function LectureRequestsController($scope, $http, LectureRequestsFactory, request){
+  function LectureRequestsController($scope, LectureRequestsFactory, request){
     debugger
     
     var vm    = this;
@@ -21,13 +21,19 @@
 
     scope.submitComment = function($event) {
       debugger
-      alert('submitting comment');
-      scope.service.addComment(this.request.id, $event.target.value);
+      if (this.request.request) {
+        alert('submitting comment');
+        scope.service.addComment(this.request.request.id, $event.target.value);  
+        // somehow refresh page here to have dynamic comment submission
+      } else {
+        alert('submitting comment');
+        scope.service.addComment(this.request.id, $event.target.value);
+      }
     }
 
   }
 
-  LectureRequestsController.$inject = ['$scope', '$http', 'LectureRequestsFactory']
+  LectureRequestsController.$inject = ['$scope', 'LectureRequestsFactory']
 
   angular
     .module('lecture_requester')  
