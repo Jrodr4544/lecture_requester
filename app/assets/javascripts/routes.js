@@ -40,7 +40,7 @@
                           request: function ($http, $stateParams) {
                             // http call to get lecture request
                             debugger
-                            return $http.get('http://localhost:3000/lecture_requests/' + $stateParams.id)
+                            return $http.get('/lecture_requests/' + $stateParams.id)
                                       .then(function(response) {
                                         debugger
                                         // need to include this as a scope or variable to then add to DOM
