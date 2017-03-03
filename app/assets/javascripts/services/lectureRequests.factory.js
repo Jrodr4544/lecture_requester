@@ -73,7 +73,7 @@ LectureRequestsFactory: LectureRequestsFactory,
       debugger
       var req = {
         method: 'POST',
-        url: 'http://localhost:3000/lecture_requests/'+id+'/comment',
+        url: '/lecture_requests/'+id+'/comment',
         headers: {
           'Content-Type': 'application/json'
         },
@@ -97,7 +97,7 @@ LectureRequestsFactory: LectureRequestsFactory,
       debugger
       var req = {
         method: 'POST',
-        url: 'http://localhost:3000/lecture_requests',
+        url: '/lecture_requests',
         headers: {
           'Content-Type': 'application/json'
         },
