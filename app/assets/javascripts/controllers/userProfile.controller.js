@@ -33,6 +33,11 @@
       scope.service.removeRequest(request_id);
     }
 
+    scope.$on('user_requests:updated', function(event,data) {
+      debugger
+      // event listener for when LectureRequestsFactory's allRequests get's updated sets the new requests accordingly 
+      vm.requests = data;
+    });
   }
 
   UserProfileController.$inject = ['$scope', 'Auth', '$state', 'LectureRequestsFactory', '$rootScope']
