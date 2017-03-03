@@ -2,7 +2,7 @@
 
   'use strict';
 
-  function AuthController($http, Auth,$scope, $rootScope, $state) {
+  function AuthController($http, Auth, $scope, $rootScope, $state) {
     // might need an auth service
 
     var config = {
@@ -26,7 +26,6 @@
           vm.avatarFiles[i]
           // pushing the avatarFiles data into avatars and grabbing only the name of the avatar
           vm.avatars.push({name: vm.avatarFiles[i].split('-')[0]})
-          // vm.avatars.push({name: avatarFiles[i].split(/[\s-.]/)[0]+'.'+avatarFiles[i].split(/[\s-.]/)[2] })
         }
 
       });      
@@ -34,9 +33,7 @@
 
 
     $scope.signIn = function() {
-      // debugger
       Auth.login($scope.user, config).then(function(user) {
-        debugger
         $scope.user = user
         $rootScope  = user;
         $state.go('home.home');
@@ -46,10 +43,8 @@
     }  
     
     $scope.register = function() {
-      // debugger
       Auth.register($scope.user, config).then(function(user) {
         // tie user to rootscope
-        debugger
         $rootScope  = user;
         $scope.user = user;
         $state.go('home.home');
