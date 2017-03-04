@@ -23,11 +23,10 @@ class ApplicationController < ActionController::Base
   protected
   
   def verified_request?
-     super || valid_authenticity_token?(session, request.headers['X-XSRF-TOKEN'])
-   end
+   super || valid_authenticity_token?(session, request.headers['X-XSRF-TOKEN'])
+  end
 
   def configure_permitted_parameters
-    # binding.pry
     # setting avatar as the avatar's nested form attribute for image. Avatar is not an object, it is a string that references an image
     (params[:user] != nil && params[:user][:avatar] != nil) ? params[:user][:avatar] = params[:user][:avatar][:image] : nil
 
