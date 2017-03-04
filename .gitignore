@@ -25,3 +25,7 @@
 /vendor/assets/stylesheets/semantic_ui/config/collections/
 vendor/assets/javascripts/semantic_ui/
 vendor/assets/stylesheets/semantic_ui/
+
+# Ignore environment files
+
+.env
