@@ -7,6 +7,9 @@ gem 'therubyracer'
 gem 'sprockets', "~> 3.6.3"
 # gem "sprockets-rails", "~> 3.2.0"
 
+# this gem for environment variables
+gem 'dotenv-rails'
+
 # omniauth gem
 gem 'omniauth'
 gem 'omniauth-github', github: 'intridea/omniauth-github'
