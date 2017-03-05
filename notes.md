@@ -42,7 +42,45 @@ Steps:
   added index action
   added authenticate_user only on create, edit, destroy
 - added routes to route file for lecture requests
+- added nested serialization to user controller for lecture_requests.comments and lecture_requests.user_likes
+- added actions to lecture_request controller; comment, heart, update, create, update
+- added more gems
+  bower-rails to package assets
+  angular-ui-router
+  angular-js
+- semantic-ui along with angular was added to bower after installing bower
+- added semantic-ui several gems as dependencies for asset pipeline and such according to docs
+- started adding views
+- added front end authentication with angular session controller
 
+Working on the JavaScript
 
+what will I need?
 
+packaging gem that packages front end assets
+  - bower-rails
+  - Angular Templates (angular-rails-templates)
+
+Angular
+  - angular JS
+  - angular UI router
+  - angular devise for front end authentication
+<!-- maybe moment.js for timestamp formatting -->
+  - use semantic ui
+    add ui cards to user profiles
+
+To Do:
+
+- finish adding views
+  everything in the views as well
+- finish routing with angular
+
+NEXT THINGS
+
+- make sure auth with git is possible with omni auth
+
+- make sure the tabs render the right view with angular and update values where needed
+
+- add profile attributes and functionality
+  - make sure user can edit their own requests
 
