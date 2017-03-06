@@ -1,4 +1,6 @@
+
 # README
+![Lecture-Requester Logo](https://github.com/Jrodr4544/lecture_requester/blob/master/logo.png)
 
 Having trouble with coding material? Sign up and create a lecture request at http://lecture-requester.herokuapp.com. 
 
