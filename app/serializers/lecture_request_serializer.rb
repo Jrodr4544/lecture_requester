@@ -3,7 +3,5 @@ class LectureRequestSerializer < ActiveModel::Serializer
 
   has_many  :comments
   has_many  :user_likes
-  # belongs_to :user
-  # has_many :hearts
 end
 #  might need a ser serializer
