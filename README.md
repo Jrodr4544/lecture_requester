@@ -13,7 +13,7 @@ or
 run it locally:
 
 1. git clone https://github.com/jrodr4544/lecture_requester
-2. bundle install
+2. run `bundle install` to install requirements
 3. create the database `rake db:create`
 4. migrate the database `rake db:migrate`
 5. start a local postgresql db
