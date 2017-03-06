@@ -4,6 +4,8 @@
 
   function LectureRequestsFactory($rootScope,$http) {
     var vm = this;
+
+    // object below can be referenced by other controllers to allow access to methods and array containers
     var LectureRequestsFactory = {};
         LectureRequestsFactory.allRequests    = [];
         LectureRequestsFactory.userRequests   = [];
