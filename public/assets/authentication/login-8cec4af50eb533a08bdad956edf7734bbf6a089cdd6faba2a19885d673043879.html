@@ -1,0 +1,60 @@
+<style>
+  body {
+    background-color: #000000
+  }
+</style>
+
+<br>
+<div class="ui center aligned grid">
+  <div class="ui middle aligned grid">
+    <div class="column">
+      <h1 style="background-color:#ffffff;" class="ui teal image header">
+        <div class="content">
+          <font color="#4183c4">Log-in to your account</font>
+        </div>
+      </h1>
+
+      <form class="ui large form" name="form" ng-submit="signIn()">
+        <div class="ui stacked segment">
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="user icon"></i>
+              <input type="email" name="email" required="required" placeholder="E-mail address" ng-model="user.email">
+            </div>
+            <div ng-if="form.email.$touched && form.email.$error.required" >
+              Email is required!
+            </div>
+            <div ng-show="form.email.$error.email">
+              Email must be valid!
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              <input type="password" name="password" required="required" placeholder="Password" ng-model="user.password">
+            </div>
+            <div ng-if="form.password.$touched && form.password.$error.required">
+              Password is required!
+            </div>
+          </div>
+
+            <input style="background-color:#4183c4;" class="ui fluid large teal submit button" type="submit" id="submit" value="Login" />
+
+            <br/>
+            <button class="ui github button">
+              <i class="github icon"></i>
+                <!-- not working -->
+                <!-- <%= link_to "Github", user_github_omniauth_authorize_path %> -->
+            </button>
+        </div>
+
+        <div class="ui error message"></div>
+
+      </form>
+      
+      <div class="ui message">
+        New to us? <a href="#" ui-sref="signup">Sign Up</a>
+      </div>
+    </div>
+  </div>
+</div>
