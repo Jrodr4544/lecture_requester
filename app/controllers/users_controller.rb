@@ -9,9 +9,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-    @user
-  end
+  # def edit
+  #   @user
+  # end
 
   def update
     @user = @trip.objectives.find(params[:id])
