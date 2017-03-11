@@ -21,6 +21,7 @@
 
     scope.submitComment = function($event) {
       debugger
+      // using this.request.request so that both the home page and the show page can submit comments
       if (this.request.request) {
         alert('submitting comment');
         scope.service.addComment(this.request.request.id, $event.target.value);  
