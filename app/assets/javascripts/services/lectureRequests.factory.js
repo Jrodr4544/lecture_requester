@@ -46,11 +46,6 @@ LectureRequestsFactory: LectureRequestsFactory,
       })
     }
 
-// function refresh() {
-//       LectureRequestsFactory.allRequests = [];
-//       getRequests();
-//     }
-
     function addComment(id, data) {
       var req = {
         method: 'POST',
@@ -63,7 +58,6 @@ LectureRequestsFactory: LectureRequestsFactory,
           comment: data
         }
       }
-      // return requests;
 
       return $http(req)
                 .then(function(data){
