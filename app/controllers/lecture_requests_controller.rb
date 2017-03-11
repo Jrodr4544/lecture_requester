@@ -20,11 +20,9 @@ class LectureRequestsController < ApplicationController
     @lectureRequest = current_user.lecture_requests.build(title: lecture_request_params[:title], content: lecture_request_params[:content])
     if @lectureRequest.save
       flash.now[:notice] = 'Thank you! Your Lecture Request was posted.'
-      # rendering the object, unless redirecting to show page then we wont need this line below
       render json: @lectureRequest, status: 201
     else
       render json: @lectureRequest, status: 404
-      # try - render json: {errors: @lectureRequest.errors.full_messages}, status: unprocessable_entity
     end
   end
 
@@ -49,7 +47,6 @@ class LectureRequestsController < ApplicationController
       @lectureRequest.save 
       flash.now[:notice] = 'Thanks! You liked this Lecture Request.'
       render json: @lectureRequest, status: 201
-      # try - render json: {errors: @lectureRequest.errors.full_messages}, status: unprocessable_entity
     end
   end
 
@@ -60,7 +57,6 @@ class LectureRequestsController < ApplicationController
       render json: @lectureRequest, status: 201
     else
       render json: @lectureRequest, status: 404
-      # try - render json: {errors: @lectureRequest.errors.full_messages}, status: unprocessable_entity
     end
   end
 
@@ -82,7 +78,6 @@ class LectureRequestsController < ApplicationController
         render json: current_user, status: 201
       else
         render status: 404
-        # try - render json: {errors: @lectureRequest.errors.full_messages}, status: unprocessable_entity
       end
     end
   end
