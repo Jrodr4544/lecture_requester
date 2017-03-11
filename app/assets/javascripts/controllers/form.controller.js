@@ -9,10 +9,10 @@
 
     vm.create = function() {
       debugger
+      // clearing the scope so that the form is empty
+      document.getElementById("lectureRequestForm").reset();
+
       return LectureRequestsFactory.createRequest($scope.lectureRequest);
-          
-      // state should go to the user's profile
-      $state.go('home.home');
     }
 
   }
