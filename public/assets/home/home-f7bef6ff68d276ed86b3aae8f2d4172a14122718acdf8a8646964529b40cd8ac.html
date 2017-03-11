@@ -1,0 +1,66 @@
+<br>
+
+<div ng-controller="LectureRequestsController as vm" ng-init="service.getRequests()">
+  <div style="background-color:#4183c4;" class="ui search">
+    <br>
+    <div class="ui fluid icon input">
+      <input ng-model="search" class="prompt" type="text" placeholder="Search Lecture Requests...">
+      <i class="search icon"></i>
+    </div>
+
+    <div class="ui radio checkbox">
+      <input type="checkbox" ng-model="search" ng-true-value="'angularjs'" ng-false-value=""><label>Angularjs</label></input>
+    </div>
+
+    <div class="ui radio checkbox">
+      <input type="checkbox" ng-model="search" ng-true-value="'javascript'" ng-false-value=""><label>Javascript</label></input>
+    </div>
+
+    <div class="ui radio checkbox">
+      <input type="checkbox" ng-model="search" ng-true-value="'rails'" ng-false-value=""><label>Rails</label></input>
+    </div>
+
+    <div class="ui radio checkbox">
+      <input type="checkbox" ng-model="search" ng-true-value="'ruby'" ng-false-value=""><label>Ruby</label></input>
+    </div>
+  </div>
+
+<br>
+  <div class="ui stackable" ng-repeat="request in vm.requests | filter: search">
+    <div></div>
+    <div class="ui fluid card">
+      <div class="content">
+        <div class="header"><a ui-sref="lecture_request({id: {{request.id}}})">{{request.title}}</a></div>
+        <div class="description">
+          {{request.content}}
+        </div>
+      </div>
+      
+      <div class="content">
+        <span class="right floated">
+          <i class="heart outline like icon" ng-controller="UserProfileController as user" ng-click="heartRequest($event)"></i>
+          {{request.user_likes.length}}
+        </span>
+        <i class="comment icon" ng-click="showComments = !showComments"></i>
+          {{request.comments.length}}
+        <div ng-show="showComments" ng-repeat="comment in request.comments">
+          <p>{{comment.commenter_username}} said: {{comment.text}}</p>
+        </div>
+      </div>
+
+      <div class="extra content">
+        <div class="ui large transparent left icon input">
+          <i class="comment outline icon"></i>
+          <input ng-controller="AuthController as Auth" ng-show="isAuthenticated" type="text" ng-model='lectureRequest.comment.text' name="lecture_request[comment]" placeholder='Add Comment...' ng-keyup="$event.keyCode == 13?submitComment($event):return "/>
+        </div>
+      </div>
+    </div>
+    <!-- need to 
+        - add the click which will show all the comments and user details
+          - even a small user's semantic ui card (find from semantic ui)
+          - it will also have option to add a comment
+            - have a functioning way to add a comment
+         -->
+  </div>
+</div>
+
