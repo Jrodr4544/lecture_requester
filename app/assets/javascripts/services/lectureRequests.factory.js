@@ -13,14 +13,14 @@
     // return LectureRequestsFactory; // not needed because the return below is doing it :-)
     
     return {
-LectureRequestsFactory: LectureRequestsFactory,
-       getUserRequests: getUserRequests,
-         removeRequest: removeRequest,
-           getRequests: getRequests,
-         likedRequests: likedRequests,
-            addComment: addComment, 
-         createRequest: createRequest,
-          heartRequest: heartRequest
+      LectureRequestsFactory: LectureRequestsFactory,
+             getUserRequests: getUserRequests,
+               removeRequest: removeRequest,
+                 getRequests: getRequests,
+               likedRequests: likedRequests,
+                  addComment: addComment, 
+               createRequest: createRequest,
+                heartRequest: heartRequest
     }
 
     function getRequests() {
@@ -37,7 +37,7 @@ LectureRequestsFactory: LectureRequestsFactory,
     function heartRequest(data) {
       // This will store the data in hearts for this service which can then be accessed. 
       $http.post('/lecture_requests/'+data.lecture_request_id+'/heart', data).then(function(data){
-        // This variable gets the request in allRequests that matches the response and then the user_likes for it gets updated
+      // This variable gets the request in allRequests that matches the response and then the user_likes for it gets updated
         var request = LectureRequestsFactory.allRequests.filter(function(request){
                       // finding the request id in .allRequests that matches the ajax response(data) id
                         if (request.id == data.data.id) {return request};
@@ -85,12 +85,6 @@ LectureRequestsFactory: LectureRequestsFactory,
       return requests;
     }
 
-    // This function is used to refresh allRequests. After a comment is submitted this should trigger
-    function refresh() {
-      LectureRequestsFactory.allRequests = [];
-      getRequests();
-    }
-
     function createRequest(request) {
       var req = {
         method: 'POST',
@@ -102,22 +96,9 @@ LectureRequestsFactory: LectureRequestsFactory,
           lecture_request: request
         }
       }
+
       return $http(req)
                 .catch(handleError)
-    }
-
-    function handleResponse(response){
-      console.log(response);
-      return response.data;
-    }
-
-    function handleError(response) {
-      console.log(response);
-    }
-
-    // This function can be called from a view to return the service's current requests
-    function requests() {
-      return vm.allRequests;
     }
 
     // This is a callback function that stores a response and sets it as the service's allRequests
@@ -151,8 +132,9 @@ LectureRequestsFactory: LectureRequestsFactory,
       $rootScope.$broadcast('user_requests:updated', LectureRequestsFactory.userRequests);
     }
 
-    function setLikedRequests(data) {
-      return vm.likedRequests = data;
+    // This function can be called from a view to return the service's current requests
+    function requests() {
+      return vm.allRequests;
     }
 
     function removeRequest(data) {
@@ -160,6 +142,10 @@ LectureRequestsFactory: LectureRequestsFactory,
         console.log(response.data);
         getUserRequests(response.data);
       });
+    }
+
+    function handleError(response) {
+      console.log(response);
     }
 
   }
