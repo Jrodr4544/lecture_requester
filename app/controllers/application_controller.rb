@@ -9,10 +9,8 @@ class ApplicationController < ActionController::Base
   end
 
   def images
-    # binding.pry
     # using Dir.entries to get the root path of rails server's assets images based on the .jpg extension 
     @images = Dir.entries(File.join(Rails.root,'public','assets')).select {|file| File.fnmatch('*.jpg',file)}
-    # binding.pry
     render json: @images
   end
   
