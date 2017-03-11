@@ -9,7 +9,9 @@
     var scope = $scope;
     
     scope.service = LectureRequestsFactory;
-    // The line below assigns one request for when the show action is called. It gets the resolved request 
+
+    // The line below assigns one request for when the show action is called. It gets the resolved request from the 
+    // route.js
     vm.request  = scope.$resolve.request;
     vm.requests = LectureRequestsFactory.LectureRequestsFactory.allRequests;
 
@@ -24,12 +26,13 @@
       // using this.request.request so that both the home page and the show page can submit comments
       if (this.request.request) {
         alert('submitting comment');
-        scope.service.addComment(this.request.request.id, $event.target.value);  
-        // somehow refresh page here to have dynamic comment submission
+        scope.service.addComment(this.request.request.id, $event.target.value);
       } else {
         alert('submitting comment');
         scope.service.addComment(this.request.id, $event.target.value);
       }
+      // this clears the input on submit
+      $event.target.value = "";
     }
 
   }
