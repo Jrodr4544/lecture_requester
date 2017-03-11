@@ -3,13 +3,12 @@
   'use strict';
 
   function AuthController($http, Auth, $scope, $rootScope, $state) {
-    // might need an auth service
-
     var config = {
       headers: {
         'X-HTTP-Method-Override': 'POST'
       }
     };
+    
     var vm = this;
     vm.avatars     = []
     vm.avatarFiles = []
@@ -30,7 +29,6 @@
 
       });      
     }
-
 
     $scope.signIn = function() {
       Auth.login($scope.user, config).then(function(user) {
