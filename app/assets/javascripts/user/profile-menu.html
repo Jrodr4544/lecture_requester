@@ -28,7 +28,6 @@
       <div ng-include="'lecture_requests/new.html'"></div>
     </div>
 
-<!-- This is not showing the correct user's requests -->
     <div class="ui attached tab segment" data-tab="third" ng-controller="UserProfileController as ctrl" ng-init="service.getUserRequests(user)" >
         <h3 ng-hide="ctrl.requests.length">You have not created any requests yet. Please create a lecture request</h3>
 
@@ -40,12 +39,10 @@
             </div>
           <button class="remove" ng-click="remove(request.id)"> Delete Request</button>
           </div>
-          <!-- on ng-click call function to remove request -->
 
         </div>
     </div>
 
-<!-- Need to make sure this finally works -->
       <div class="ui attached tab segment" data-tab="fourth" ng-controller="UserProfileController as vm" ng-init="setLikes()">
           <h3 ng-hide="vm.likes.length">No liked requests yet buddy</h3>
           <div ng-repeat="request in vm.likes" class="ui card">
