@@ -14,6 +14,21 @@
     // route.js
     vm.request  = scope.$resolve.request;
     vm.requests = LectureRequestsFactory.LectureRequestsFactory.allRequests;
+    vm.sortedByHearts = [];
+
+    vm.sortByHearts = function() {
+      debugger
+
+      function compare(a,b) {
+          if (a.user_likes < b.user_likes)
+             return 1;
+          if (a.user_likes > b.user_likes)
+            return -1;
+          return 0;
+        }
+
+        vm.requests.sort(compare);
+    };
 
     scope.$on('requests:updated', function(event,data) {
       debugger
