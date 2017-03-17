@@ -13,7 +13,13 @@
     scope.user     = Auth._currentUser;
     debugger
     vm.likes       = [];
-    vm.requests    = LectureRequestsFactory.LectureRequestsFactory.userRequests;
+
+    scope.$on('user_requests:updated', function(event,data) {
+      debugger
+      // event listener for when LectureRequestsFactory's allRequests get's updated sets the new requests accordingly 
+      // vm.requests = data;
+      vm.requests = scope.user.lecture_requests = data;
+    });
 
     scope.setLikes = function() {
       vm.likes = scope.service.likedRequests(scope.user);
@@ -33,11 +39,11 @@
       scope.service.removeRequest(request_id);
     }
 
-    scope.$on('user_requests:updated', function(event,data) {
-      debugger
-      // event listener for when LectureRequestsFactory's allRequests get's updated sets the new requests accordingly 
-      vm.requests = data;
-    });
+    // set down here because we want this to be read last
+    // when user requests are updated. This is the initial
+    // state of the user's requests on login.
+    vm.requests    = scope.user.lecture_requests;
+
   }
 
   UserProfileController.$inject = ['$scope', 'Auth', '$state', 'LectureRequestsFactory', '$rootScope']
