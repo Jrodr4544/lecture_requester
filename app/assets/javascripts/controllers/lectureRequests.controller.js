@@ -7,11 +7,9 @@
     
     var vm    = this;
     var scope = $scope;
-    
-    // scope.service = LectureRequestsFactory;
 
     // The line below assigns one request for when the show action is called. It gets the resolved request from the 
-    // route.js
+    // route.js as well as all the requests
     vm.request  = scope.$resolve.request;
     vm.requests = scope.$resolve.requests;
 
@@ -40,10 +38,10 @@
       // using this.request.request so that both the home page and the show page can submit comments
       if (this.request.request) {
         alert('submitting comment');
-        scope.service.addComment(this.request.request.id, $event.target.value);
+        LectureRequestsFactory.addComment(this.request.request.id, $event.target.value);
       } else {
         alert('submitting comment');
-        scope.service.addComment(this.request.id, $event.target.value);
+        LectureRequestsFactory.addComment(this.request.id, $event.target.value);
       }
       // this clears the input on submit
       $event.target.value = "";
