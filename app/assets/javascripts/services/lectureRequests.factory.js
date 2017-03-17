@@ -5,15 +5,12 @@
   function LectureRequestsFactory($rootScope,$http,$q) {
     var self = this;
 
-    // object below can be referenced by other controllers to allow access to methods and array containers
-    var LectureRequestsFactory = {};
         self.allRequests    = [];
         self.userRequests   = [];
 
     // return LectureRequestsFactory; // not needed because the return below is doing it :-)
     
     return {
-      LectureRequestsFactory: LectureRequestsFactory,
                removeRequest: removeRequest,
                  getRequests: getRequests,
                likedRequests: likedRequests,
