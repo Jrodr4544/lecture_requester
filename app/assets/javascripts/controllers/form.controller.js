@@ -12,7 +12,7 @@
       // clearing the scope so that the form is empty
       document.getElementById("lectureRequestForm").reset();
 
-      return LectureRequestsFactory.createRequest($scope.lectureRequest);
+      return LectureRequestsFactory.createRequest($scope.lectureRequest, $scope.user.id);
     }
 
   }
