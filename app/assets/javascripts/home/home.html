@@ -1,15 +1,13 @@
 <br>
-
-<div ng-controller="LectureRequestsController as vm" ng-init="service.getRequests()">
 <button class="mini ui button" ng-click="vm.sortByHearts()" >Sort by likes</button>
-  
+
   <div style="background-color:#4183c4;" class="ui search">
     <br>
     <div class="ui fluid icon input">
       <input ng-model="search" class="prompt" type="text" placeholder="Search Lecture Requests...">
       <i class="search icon"></i>
     </div>
-    
+
     <div class="ui radio checkbox">
       <input type="checkbox" ng-model="search" ng-true-value="'angularjs'" ng-false-value=""><label>Angularjs</label></input>
     </div>
