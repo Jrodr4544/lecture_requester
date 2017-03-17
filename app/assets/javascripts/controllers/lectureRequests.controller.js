@@ -2,19 +2,18 @@
 ( function() {
   'use strict';
   
-  function LectureRequestsController($scope, LectureRequestsFactory, request){
+  function LectureRequestsController($scope, LectureRequestsFactory, request, requests){
     debugger
     
     var vm    = this;
     var scope = $scope;
     
-    scope.service = LectureRequestsFactory;
+    // scope.service = LectureRequestsFactory;
 
     // The line below assigns one request for when the show action is called. It gets the resolved request from the 
     // route.js
     vm.request  = scope.$resolve.request;
-    vm.requests = LectureRequestsFactory.LectureRequestsFactory.allRequests;
-    vm.sortedByHearts = [];
+    vm.requests = scope.$resolve.requests;
 
     vm.sortByHearts = function() {
       debugger
