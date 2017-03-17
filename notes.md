@@ -84,3 +84,6 @@ NEXT THINGS
 - add profile attributes and functionality
   - make sure user can edit their own requests
 
+LAST FEW THINGS
+
+From the view I was calling a service function on init by routing it through the controller. Then I would broadcast the response from the api and assign the value through $rootScope
