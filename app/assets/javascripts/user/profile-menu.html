@@ -28,7 +28,7 @@
       <div ng-include="'lecture_requests/new.html'"></div>
     </div>
 
-    <div class="ui attached tab segment" data-tab="third" ng-controller="UserProfileController as ctrl" ng-init="service.getUserRequests(user)" >
+    <div class="ui attached tab segment" data-tab="third" ng-controller="UserProfileController as ctrl">
         <h3 ng-hide="ctrl.requests.length">You have not created any requests yet. Please create a lecture request</h3>
 
         <div ng-repeat="request in ctrl.requests" class="ui card">
