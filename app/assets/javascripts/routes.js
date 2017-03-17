@@ -5,6 +5,11 @@
   angular
     .module('lecture_requester')  
     .config(function( $stateProvider, $urlRouterProvider) {
+        var getRequests = function(LectureRequestsFactory) {  
+          debugger
+          return LectureRequestsFactory.getRequests();
+        };
+
         $stateProvider
             .state('home', {
               url: '/',
@@ -14,9 +19,11 @@
             .state('home.home', {
               url: 'home',
               templateUrl: 'home/home.html',
-              controller: 'HomeController as vm'
+              controller: 'LectureRequestsController as vm',
+              resolve: {
+                          requests: getRequests
+                        }
             })
-            // nested route below at home.lecture_requests
             .state('home.user', {
               url: 'user',
               templateUrl: 'user/profile.html',
