@@ -5,15 +5,12 @@
   function UserProfileController($scope, Auth, $state, LectureRequestsFactory, $rootScope){
     debugger
     var vm = this;
-    // vm.heartRequest = heartRequest;
-
     var scope = $scope;
-    
-    scope.service  = LectureRequestsFactory;
+        
     scope.user     = Auth._currentUser;
-    debugger
     vm.likes       = [];
-
+    debugger
+    
     scope.$on('user_requests:updated', function(event,data) {
       debugger
       // event listener for when LectureRequestsFactory's allRequests get's updated sets the new requests accordingly 
@@ -22,10 +19,9 @@
     });
 
     scope.setLikes = function() {
-      vm.likes = scope.service.likedRequests(scope.user);
+      vm.likes = LectureRequestsFactory.likedRequests(scope.user);
     }
 
-    // make comments reflect this
     scope.heartRequest = function($event) {
       debugger
       var data = {
@@ -36,7 +32,7 @@
 
     scope.remove = function(request_id) {
       debugger
-      scope.service.removeRequest(request_id);
+      LectureRequestsFactory.removeRequest(request_id);
     }
 
     // set down here because we want this to be read last
