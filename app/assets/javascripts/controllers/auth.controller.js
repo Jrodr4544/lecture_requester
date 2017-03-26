@@ -13,6 +13,7 @@
     vm.avatars     = []
     vm.avatarFiles = []
     
+    // Maybe we can resolve these avatars at signup state
     $scope.getAvatars = function() {
       // setting to empty array in case values already in here
       vm.avatars = [];
