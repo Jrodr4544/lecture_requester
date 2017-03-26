@@ -16,7 +16,8 @@
                likedRequests: likedRequests,
                   addComment: addComment, 
                createRequest: createRequest,
-                heartRequest: heartRequest
+                heartRequest: heartRequest,
+               stackOverflow: stackOverflow
     }
 
     function getRequests(updated = false) {
@@ -39,6 +40,21 @@
             deferred.reject(response);
           });
       }
+
+      return deferred.promise
+    }
+
+    function stackOverflow(terms) {
+      var deferred = $q.defer();
+
+      $http.get('http://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitle='+terms+'&site=stackoverflow')
+        .success(function(data){
+          console.log(data)
+          deferred.resolve(data);
+        })
+        .error(function(response) {
+          deferred.reject(response);
+        })
 
       return deferred.promise
     }
