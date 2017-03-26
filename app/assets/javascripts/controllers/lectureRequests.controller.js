@@ -27,6 +27,15 @@
         vm.requests.sort(compare);
     };
 
+    vm.searchStackOverflow = function() {
+      debugger
+      var search_terms          = document.getElementById('search_field').value;
+      // query the stackoverflow api and add the api's response to requests.
+      var stackOverflowResponse = LectureRequestsFactory.stackOverflow(search_terms);
+      debugger
+      console.log(stackOverflowResponse)
+    }
+
     scope.$on('requests:updated', function(event,data) {
       debugger
       // event listener for when LectureRequestsFactory's allRequests get's updated sets the new requests accordingly 
