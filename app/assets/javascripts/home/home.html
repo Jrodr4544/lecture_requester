@@ -1,10 +1,13 @@
 <br>
 <button class="mini ui button" ng-click="vm.sortByHearts()" >Sort by likes</button>
+<!-- ngclick to stackoverflow api -->
+<button class="mini ui button" ng-click="vm.searchStackOverflow()" value="submit"><img width="auto" height="15" src="assets/stack_overflow_logo.png"></button>
 
   <div style="background-color:#4183c4;" class="ui search">
     <br>
+
     <div class="ui fluid icon input">
-      <input ng-model="search" class="prompt" type="text" placeholder="Search Lecture Requests...">
+      <input id="search_field" ng-model="search" class="prompt" type="text" placeholder="Search Lecture Requests...">
       <i class="search icon"></i>
     </div>
 
