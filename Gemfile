@@ -81,4 +81,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # heroku configurations
 gem 'rails_12factor', group: :production
 
-ruby "2.2.2"
+ruby "2.2.5"
