@@ -6,7 +6,7 @@
     .module('lecture_requester')  
     .config(function( $stateProvider, $urlRouterProvider) {
         var getRequests = function(LectureRequestsFactory) {  
-          debugger
+          // debugger
           return LectureRequestsFactory.getRequests();
         };
 
