@@ -20,7 +20,7 @@
 
       $http.get('avatars').then(function(response) { 
         console.log(response); 
-        debugger
+        // debugger
         vm.avatarFiles = response.data;
         for (var i = 0; i < vm.avatarFiles.length; i++) {
           vm.avatarFiles[i]
