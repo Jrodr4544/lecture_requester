@@ -3,7 +3,7 @@
   'use strict';
   
   function LectureRequestsController($scope, LectureRequestsFactory, request, requests){
-    debugger
+    // debugger
     
     var vm    = this;
     var scope = $scope;
@@ -14,7 +14,7 @@
     vm.requests = scope.$resolve.requests;
 
     vm.sortByHearts = function() {
-      debugger
+      // debugger
 
       function compare(a,b) {
           if (a.user_likes < b.user_likes)
@@ -28,22 +28,25 @@
     };
 
     vm.searchStackOverflow = function() {
-      debugger
+      // debugger
       var search_terms          = document.getElementById('search_field').value;
       // query the stackoverflow api and add the api's response to requests.
-      var stackOverflowResponse = LectureRequestsFactory.stackOverflow(search_terms);
-      debugger
-      console.log(stackOverflowResponse)
+      LectureRequestsFactory.stackOverflow(search_terms).then(function (response){
+        debugger
+        console.log(response);
+        vm.stackOverflowPosts = response.items;
+      })
+    
     }
 
     scope.$on('requests:updated', function(event,data) {
-      debugger
+      // debugger
       // event listener for when LectureRequestsFactory's allRequests get's updated sets the new requests accordingly 
       vm.requests = data;
     });
 
     scope.submitComment = function($event) {
-      debugger
+      // debugger
       // using this.request.request so that both the home page and the show page can submit comments
       if (this.request.request) {
         alert('submitting comment');
