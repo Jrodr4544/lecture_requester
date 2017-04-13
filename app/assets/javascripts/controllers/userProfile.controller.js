@@ -3,16 +3,16 @@
   'use strict';
   
   function UserProfileController($scope, Auth, $state, LectureRequestsFactory, $rootScope){
-    debugger
+    // debugger
     var vm = this;
     var scope = $scope;
         
     scope.user     = Auth._currentUser;
     vm.likes       = [];
-    debugger
+    // debugger
     
     scope.$on('user_requests:updated', function(event,data) {
-      debugger
+      // debugger
       // event listener for when LectureRequestsFactory's allRequests get's updated sets the new requests accordingly 
       // vm.requests = data;
       vm.requests = scope.user.lecture_requests = data;
@@ -23,7 +23,7 @@
     }
 
     scope.heartRequest = function($event) {
-      debugger
+      // debugger
       var data = {
         lecture_request_id: $scope.request.id
       }
@@ -31,7 +31,7 @@
     }
 
     scope.remove = function(request_id) {
-      debugger
+      // debugger
       LectureRequestsFactory.removeRequest(request_id);
     }
 
