@@ -28,6 +28,24 @@
     </div>
   </div>
 
+
+<!-- Requests from StackOverFlow are populated here -->
+<div class="ui stackable" ng-repeat="request in vm.stackOverflowPosts | filter: search">
+    <div></div>
+    <div class="ui fluid card">
+      <div class="content">
+        <div class="header"><a href="{{request.link}}">{{request.title}}</a></div>
+        
+        <div class="extra content">
+          <span class="right floated">
+          - StackOverflow Post
+          </span>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- Requests in the Database are populated here -->
 <br>
   <div class="ui stackable" ng-repeat="request in vm.requests | filter: search">
     <div></div>
