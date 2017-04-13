@@ -3,21 +3,21 @@
   'use strict';
 
   function SessionController(Auth,$scope,$location) {
-    debugger
+    // debugger
     var vm = this;
 
       $scope.$on('devise:new-session', function(event, currentUser) {
-        debugger
+        // debugger
         $scope.isAuthenticated = true;
       });
 
       $scope.$on('devise:logout', function(event, oldCurrentUser) {
-        debugger
+        // debugger
         $scope.isAuthenticated = false;
       });
 
       $scope.$on('devise:new-registration', function(event, user) {
-        debugger
+        // debugger
         $scope.isAuthenticated = true;
       });
 
