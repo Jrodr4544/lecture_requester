@@ -45,18 +45,18 @@
     }
 
     function stackOverflow(terms) {
-      var deferred = $q.defer();
 
-      $http.get('http://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitle='+terms+'&site=stackoverflow')
-        .success(function(data){
-          console.log(data)
-          deferred.resolve(data);
+      return fetch('http://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitle='+terms+'&site=stackoverflow')
+        .then(function(response){
+          return response.json()
         })
-        .error(function(response) {
-          deferred.reject(response);
+        .then(data => {
+          return Promise.resolve(data);
+        })
+        .catch(function(response) {
+          return Promise.reject(new Error(response.statusText))
         })
 
-      return deferred.promise
     }
 
     function heartRequest(data) {
@@ -101,7 +101,7 @@
       self.allRequests.filter(function(request){
         // going through each request's user_likes to grab the user's liked requests
         var likes = request.user_likes;
-        debugger
+
         for (var i = 0; i < likes.length; i++) {
           if (likes[i].id == user.id) {requests.push(request)};
         }
@@ -184,3 +184,5 @@
     .factory('LectureRequestsFactory', LectureRequestsFactory)
 
 }())
+
+   
