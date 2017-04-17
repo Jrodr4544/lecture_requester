@@ -3,7 +3,7 @@
   'use strict';
   
   function UserProfileController($scope, Auth, $state, LectureRequestsFactory, $rootScope){
-    // debugger
+    debugger
     var vm = this;
     var scope = $scope;
         
