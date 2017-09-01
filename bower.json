@@ -1,10 +1,13 @@
 {
   "name": "bower-rails generated vendor assets",
   "dependencies": {
-    "angular": "v1.5.8",
+    "angular": "^1.6.5",
     "angular-ui-router": "latest",
     "angular-devise": "latest",
     "angular-asset-path": "^1.0.2",
     "semantic-ui": "latest"
+  },
+  "resolutions": {
+    "angular": "^1.6.5"
   }
 }
