@@ -251,6 +251,7 @@ DEPENDENCIES
   dotenv-rails
   jbuilder (~> 2.5)
   jquery-rails
+  less-rails
   less-rails-semantic_ui
   listen (~> 3.0.5)
   omniauth
@@ -275,4 +276,4 @@ RUBY VERSION
    ruby 2.2.7
 
 BUNDLED WITH
-   1.12.5
+   1.14.6
